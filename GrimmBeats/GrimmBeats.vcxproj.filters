@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject">
+      <UniqueIdentifier>{c4cefe83-9c5a-455e-bc0e-d946478872a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Base">
+      <UniqueIdentifier>{dd97625d-96eb-453e-8450-9b9cca4664f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Base\GameObject">
+      <UniqueIdentifier>{ee250ad2-5998-4fa6-8584-df2ea8b58ad4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent">
+      <UniqueIdentifier>{4ef993ae-9951-4ba3-b18f-cd9bb730aad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Time">
+      <UniqueIdentifier>{c8e5ac94-b84e-4a3b-a13a-c5c68aa8f8bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Screen">
+      <UniqueIdentifier>{bf224652-d28c-4b72-a8f5-4694bc1f8165}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Screen\FadeIO">
+      <UniqueIdentifier>{da5fdbe1-3565-4fd5-82f6-f9d516502f95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Screen\Graph">
+      <UniqueIdentifier>{a78a33f8-a970-41ef-9cd7-633acb09ca36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Screen\Data">
+      <UniqueIdentifier>{524a1ead-1285-4ff8-bd6b-943012fb04e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Resource">
+      <UniqueIdentifier>{ef5bba0a-8e60-4d17-9465-a426b20a6289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Resource\Graphic">
+      <UniqueIdentifier>{6700ef25-7d64-4a16-897b-e02b9f7a80fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Resource\Audio">
+      <UniqueIdentifier>{e99f1a78-093c-4cc9-91c4-fc93e7fb9012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Resource\Json">
+      <UniqueIdentifier>{94414456-2339-4742-ac6d-af078012ae57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Base">
+      <UniqueIdentifier>{4b230a4a-7cb4-4af0-9e67-0a96ab6d73d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Base\Purpose">
+      <UniqueIdentifier>{db2b230d-b296-4087-a77a-985edb584a17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Base\Input">
+      <UniqueIdentifier>{dabc057a-9717-4d06-b980-2f2e13506380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Lane">
+      <UniqueIdentifier>{b4e306b7-ed77-4640-aebf-dc9836f60e44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Notes">
+      <UniqueIdentifier>{4c97f92c-fd10-4394-8693-25006cc092c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Necessary">
+      <UniqueIdentifier>{ec847c1a-ae2a-491e-a4ec-b8a58c622325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Base\UI">
+      <UniqueIdentifier>{35559147-f034-4dc3-a82c-dd96a8eeb493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{e8f475b5-370c-4858-b8c8-e683c434911b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\Manager">
+      <UniqueIdentifier>{a0561e2a-eb42-4e2f-a7e3-193acbd326e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\GameScene">
+      <UniqueIdentifier>{096bc8fe-8326-4221-b97f-378163df4c2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Base\Scene">
+      <UniqueIdentifier>{730b523f-433d-4671-a7da-0d6c574d6b8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\JudgeLine">
+      <UniqueIdentifier>{b463f264-2438-41ef-9d8c-7c924e3c4fda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Info">
+      <UniqueIdentifier>{67e53757-fc5c-4be6-a7e7-5b52328c134a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Info\MusicInfoManager">
+      <UniqueIdentifier>{8a583a00-7bc9-4349-a0ff-2b57d6039273}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>ソース ファイル\Commponent\Resource\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicResource.cpp">
+      <Filter>ソース ファイル\Commponent\Resource\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>ソース ファイル\Commponent\Resource\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoard.cpp">
+      <Filter>ソース ファイル\Base\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>ソース ファイル\Base\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Purpose.cpp">
+      <Filter>ソース ファイル\Base\Purpose</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenFunction.cpp">
+      <Filter>ソース ファイル\Commponent\Screen\FadeIO</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenHelperGraph.cpp">
+      <Filter>ソース ファイル\Commponent\Screen\Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenSystem.cpp">
+      <Filter>ソース ファイル\Commponent\Screen\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>ソース ファイル\GameObject\Base\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="json11.cpp">
+      <Filter>ソース ファイル\Commponent\Resource\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>ソース ファイル\Commponent\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Necessary.cpp">
+      <Filter>ソース ファイル\Necessary</Filter>
+    </ClCompile>
+    <ClCompile Include="Lane.cpp">
+      <Filter>ソース ファイル\GameObject\Lane</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicUI.cpp">
+      <Filter>ソース ファイル\Base\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="JudgeLine.cpp">
+      <Filter>ソース ファイル\GameObject\JudgeLine</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>ソース ファイル\Base\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>ソース ファイル\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicInfoManager.cpp">
+      <Filter>ソース ファイル\Info\MusicInfoManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicInfo.cpp">
+      <Filter>ソース ファイル\Info</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation.h">
+      <Filter>ソース ファイル\Commponent\Resource\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicResource.h">
+      <Filter>ソース ファイル\Commponent\Resource\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>ソース ファイル\Commponent\Resource\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoard.h">
+      <Filter>ソース ファイル\Base\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>ソース ファイル\Base\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Purpose.h">
+      <Filter>ソース ファイル\Base\Purpose</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenFunction.h">
+      <Filter>ソース ファイル\Commponent\Screen\FadeIO</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryFunc.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenHelperGraph.h">
+      <Filter>ソース ファイル\Commponent\Screen\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenSystem.h">
+      <Filter>ソース ファイル\Commponent\Screen\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>ソース ファイル\GameObject\Base\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>ソース ファイル\Commponent\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="json11.hpp">
+      <Filter>ソース ファイル\Commponent\Resource\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Necessary.h">
+      <Filter>ソース ファイル\Necessary</Filter>
+    </ClInclude>
+    <ClInclude Include="Lane.h">
+      <Filter>ソース ファイル\GameObject\Lane</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicUI.h">
+      <Filter>ソース ファイル\Base\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="JudgeLine.h">
+      <Filter>ソース ファイル\GameObject\JudgeLine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>ソース ファイル\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>ソース ファイル\Base\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicInfo.h">
+      <Filter>ソース ファイル\Info</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicInfoManager.h">
+      <Filter>ソース ファイル\Info\MusicInfoManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+{
+  "audio": [
+    {
+      "name": "decision",
+      "loop": false,
+      "path": "./data/BGM_SE/SE/SystemDecision.ogg",
+      "scope": [
+        "decision",
+        "se",
+        "system",
+        "all"
+      ]
+    },
+    {
+      "name": "fancie",
+      "loop": false,
+      "path": "./data/BGM_SE/BGM/fancie.mp3",
+      "scope": [
+        "bgm",
+        "game",
+        "all"
+      ]
+    }
+  ]
+}
