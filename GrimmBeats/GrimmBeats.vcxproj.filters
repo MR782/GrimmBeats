@@ -83,6 +83,9 @@
     <Filter Include="ソース ファイル\Info">
       <UniqueIdentifier>{67e53757-fc5c-4be6-a7e7-5b52328c134a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Commponent\Resource\Json\Helper">
+      <UniqueIdentifier>{a6112507-c13d-4e87-a10a-24ca78fec6de}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ソース ファイル\Info\MusicInfoManager">
       <UniqueIdentifier>{8a583a00-7bc9-4349-a0ff-2b57d6039273}</UniqueIdentifier>
     </Filter>
@@ -145,11 +148,11 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>ソース ファイル\Scene\GameScene</Filter>
     </ClCompile>
-    <ClCompile Include="MusicInfoManager.cpp">
+    <ClCompile Include="MusicDataManager.cpp">
       <Filter>ソース ファイル\Info\MusicInfoManager</Filter>
     </ClCompile>
-    <ClCompile Include="MusicInfo.cpp">
-      <Filter>ソース ファイル\Info</Filter>
+    <ClCompile Include="JsonHelper.cpp">
+      <Filter>ソース ファイル\Commponent\Resource\Json\Helper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -210,11 +213,11 @@
     <ClInclude Include="Scene.h">
       <Filter>ソース ファイル\Base\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="MusicInfo.h">
-      <Filter>ソース ファイル\Info</Filter>
-    </ClInclude>
-    <ClInclude Include="MusicInfoManager.h">
+    <ClInclude Include="MusicDataManager.h">
       <Filter>ソース ファイル\Info\MusicInfoManager</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonHelper.h">
+      <Filter>ソース ファイル\Commponent\Resource\Json\Helper</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 ﻿#include "Audio.h"
-#include<fstream>
+#include"JsonHelper.h"
 #include<memory>
 #include"./dxlib/DxLib.h"
 
@@ -35,14 +35,7 @@ void Audio::register_audio(AudioObject& obj)
 
 void Audio::initialize()
 {
-	std::ifstream audiopath("./data/json/audiosource.json");//使用ファイル設定
-	if (audiopath.fail()) throw("audiosource.json is not found.");//例外処理
-	//Jsonを使用する準備------------------------------------------
-	std::istreambuf_iterator<char> it(audiopath);
-	std::istreambuf_iterator<char> last;
-	std::string str_json(it, last);	//string形式のjson
-	std::string err;
-	json11::Json json = json11::Json::parse(str_json, err);//Jsonで使えるようにする
+	json11::Json json = JsonHelper::JsonInitialize("./data/json/audiosource.json");
 	//-------------------------------------------------------------
 	for (auto& item : json["audio"].array_items()) {//ファイル内のデータ分繰り返す
 		std::shared_ptr<AudioObject> audio = std::make_shared<AudioObject>();
@@ -56,8 +49,6 @@ void Audio::initialize()
 		audio->set_default();//値が入っていない場合デフォルト値をセット
 		audioobj.push_back(std::move(audio));//所有権の移行
 	}
-	//ファイルを閉じてvectorに入れたのでデータを消す
-	audiopath.close();;
 }
 
 void Audio::play(std::string name, bool is_multiple)
