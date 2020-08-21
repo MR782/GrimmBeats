@@ -6,21 +6,21 @@
 char* KeyBoard::current;
 char* KeyBoard::previous;
 
-void KeyBoard::initialize()
+void KeyBoard::Initialize()
 {
 	//領域確保
 	current = new char[KEY_BOARD_BUF];
 	previous = new char[KEY_BOARD_BUF];
 }
 
-void KeyBoard::finalize()
+void KeyBoard::Finalize()
 {
 	//領域開放
 	delete[] current;
 	delete[] previous;
 }
 
-void KeyBoard::update()
+void KeyBoard::Update()
 {
 	//作業領域と１フレーム前の入れ替え
 	static char* work;
@@ -32,19 +32,19 @@ void KeyBoard::update()
 	GetHitKeyStateAll(current);
 }
 
-bool KeyBoard::key_down(int k_)
+bool KeyBoard::KeyDown(int k_)
 {
 	//今は押されているが１フレーム前は押されていない
 	return *(current + k_) == 1 && *(previous + k_) == 0;
 }
 
-bool KeyBoard::key_up(int k_)
+bool KeyBoard::KeyUp(int k_)
 {
 	//今は押されていないが1フレーム前は押されていた
 	return *(current + k_) == 0 && *(previous + k_) == 1;
 }
 
-bool KeyBoard::key_press(int k_)
+bool KeyBoard::KeyPress(int k_)
 {
 	//今現在押されているなら
 	return *(current + k_) == 1;

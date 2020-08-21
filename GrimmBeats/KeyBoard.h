@@ -5,13 +5,13 @@
 
 class KeyBoard {
 public:
-	static void initialize();//初期化
-	static void finalize();//終了処理
-	static void update();//更新処理
+	static void Initialize();//初期化
+	static void Finalize();//終了処理
+	static void Update();//更新処理
 	//キー操作
-	static bool key_down(int);//押された瞬間
-	static bool key_up(int);//離された瞬間
-	static bool key_press(int);//押されている間
+	static bool KeyDown(int);//押された瞬間
+	static bool KeyUp(int);//離された瞬間
+	static bool KeyPress(int);//押されている間
 private:
 	KeyBoard();
 	static char* current;//キーボード対応

@@ -27,20 +27,20 @@ struct Text {
 	Point pos;//表示座標
 	int font;//フォントハンドル
 	int color;//色
-	void set_font(const char* str, Point pos, int font, int color);
-	void delete_font();
-	void draw_font();
+	void SetFont(const char* str, Point pos, int font, int color);
+	void DeleteFont();
+	void DrawFont();
 	template<typename T>
-	void drawformat_font(T data);
-	void setPosition(Point pos);
+	void DrawFormatFont(T data);
+	void SetPosition(Point pos);
 };
 
-int create_font(int size,int thick,bool is_anti_alias);
+int CreateFont(int size,int thick,bool is_anti_alias);
 
-int setColor(Color color);
+int SetColor(Color color);
 
 template<typename T>
-void Text::drawformat_font(T data)
+void Text::DrawFormatFont(T data)
 {
 	DrawFormatStringToHandle(this->pos.x, this->pos.y, this->color, this->font, this->str, data);
 }

@@ -68,9 +68,6 @@
     <Filter Include="ソース ファイル\Scene">
       <UniqueIdentifier>{e8f475b5-370c-4858-b8c8-e683c434911b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Scene\Manager">
-      <UniqueIdentifier>{a0561e2a-eb42-4e2f-a7e3-193acbd326e7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Scene\GameScene">
       <UniqueIdentifier>{096bc8fe-8326-4221-b97f-378163df4c2d}</UniqueIdentifier>
     </Filter>
@@ -88,6 +85,21 @@
     </Filter>
     <Filter Include="ソース ファイル\Info\MusicInfoManager">
       <UniqueIdentifier>{8a583a00-7bc9-4349-a0ff-2b57d6039273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\Manager">
+      <UniqueIdentifier>{a0561e2a-eb42-4e2f-a7e3-193acbd326e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\TitleScene">
+      <UniqueIdentifier>{cad30a36-a2c1-4a35-9619-a0ff5ddab1aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Commponent\Resource\Movie">
+      <UniqueIdentifier>{62576647-e64e-4f6d-97a1-c6ebf528946f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI">
+      <UniqueIdentifier>{763accf5-39e0-4275-a1c4-a35c8e466e9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\TitleUI">
+      <UniqueIdentifier>{60d58891-02fd-4668-a162-026fe1bc37fb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +166,18 @@
     <ClCompile Include="JsonHelper.cpp">
       <Filter>ソース ファイル\Commponent\Resource\Json\Helper</Filter>
     </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>ソース ファイル\Scene\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>ソース ファイル\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MovieResource.cpp">
+      <Filter>ソース ファイル\Commponent\Resource\Movie</Filter>
+    </ClCompile>
+    <ClCompile Include="Movie.cpp">
+      <Filter>ソース ファイル\Commponent\Resource\Movie</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -218,6 +242,18 @@
     </ClInclude>
     <ClInclude Include="JsonHelper.h">
       <Filter>ソース ファイル\Commponent\Resource\Json\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>ソース ファイル\Scene\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>ソース ファイル\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MovieResource.h">
+      <Filter>ソース ファイル\Commponent\Resource\Movie</Filter>
+    </ClInclude>
+    <ClInclude Include="Movie.h">
+      <Filter>ソース ファイル\Commponent\Resource\Movie</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

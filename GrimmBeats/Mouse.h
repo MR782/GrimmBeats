@@ -11,16 +11,16 @@ class Mouse {
 	static int right_previous;//1フレーム前
 	static int right_current;//作業領域
 public:
-	static void initialize();
-	static void update();
+	static void Initialize();
+	static void Update();
 	//左クリック用
-	static bool left_click_down();
-	static bool left_click_up();
-	static bool left_click_press();
-	static bool left_click_not_press();
+	static bool LeftClickDown();
+	static bool LeftClickUp();
+	static bool LeftClickPress();
+	static bool LeftClickNotPress();
 	//右クリック用
-	static bool right_click_down();
-	static bool right_click_up();
-	static bool right_click_press();
-	static bool right_click_not_press();
+	static bool RightClickDown();
+	static bool RightClickUp();
+	static bool RightClickPress();
+	static bool RightClickNotPress();
 };

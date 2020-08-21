@@ -12,8 +12,8 @@ private:
 	std::string path;	//ファイルパス
 	std::vector<std::string> scopes;//読み込むときの名前
 	int vertical, horizontal;//縦、横に画像を割った時の数
-	void set_default_to_empty();	//オブジェクトにデフォルト値を設定する
-	bool exits_scope(std::string);	//スコープが存在しているか調べる
+	void SetDefaultToEmpty();	//オブジェクトにデフォルト値を設定する
+	bool ExitsScope(std::string);	//スコープが存在しているか調べる
 public:
 	GraphicObject();
 	bool loop;	//ループの有無
@@ -25,15 +25,15 @@ public:
 class GraphicResource
 {
 public:
-	static int load(std::string _scope);
-	static void initialize();
+	static int Load(std::string _scope);
+	static void Initialize();
 	//複数が同じ画像を使う可能性があるためshared_ptrとする
-	static std::shared_ptr<GraphicObject> get(std::string name);//引数のnameを持つオブジェクトポインタを返す
-	static void finalize();//使い終わったデータを全削除
-	static int* get_handle(std::string name_);//ハンドルのみ受け取らせる(Animationクラスを使用しない描画で使用)
+	static std::shared_ptr<GraphicObject> Get(std::string name);//引数のnameを持つオブジェクトポインタを返す
+	static void Finalize();//使い終わったデータを全削除
+	static int* GetHandle(std::string name_);//ハンドルのみ受け取らせる(Animationクラスを使用しない描画で使用)
 private:
-	static void delete_all();//全ての画像をメモリから解放する
-	static bool exist_name(std::string);		//名前が存在しているか調べる
-	static void register_graph(GraphicObject&);	//画像を登録する
+	static void DeleteAll();//全ての画像をメモリから解放する
+	static bool ExistName(std::string);		//名前が存在しているか調べる
+	static void RegisterGraph(GraphicObject&);	//画像を登録する
 	static std::vector<std::shared_ptr<GraphicObject>> graph;	//画像データなどを保持するオブジェクト
 };

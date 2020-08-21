@@ -3,7 +3,7 @@
 #include"Necessary.h"
 #include"./dxlib/DxLib.h"
 
-int create_font(int size, int thick, bool is_anti_alias)
+int CreateFont(int size, int thick, bool is_anti_alias)
 {
 	int handle;
 	//アンチエイリアスを使用するなら
@@ -16,7 +16,7 @@ int create_font(int size, int thick, bool is_anti_alias)
 	return handle;
 }
 
-int setColor(Color color)
+int SetColor(Color color)
 {
 	unsigned int _color = 0;
 	switch (color)
@@ -63,7 +63,7 @@ Text::Text()
 	this->pos = { 0,0 };
 }
 
-void Text::set_font(const char* str, Point pos, int font, int color)
+void Text::SetFont(const char* str, Point pos, int font, int color)
 {
 	this->str = str;
 	this->pos = pos;
@@ -72,17 +72,17 @@ void Text::set_font(const char* str, Point pos, int font, int color)
 	this->text_width = (int)strlen(this->str);
 }
 
-void Text::delete_font()
+void Text::DeleteFont()
 {
 	DeleteFontToHandle(this->font);
 }
 
-void Text::draw_font()
+void Text::DrawFont()
 {
 	DrawStringToHandle(this->pos.x, this->pos.y, this->str, this->color, this->font);
 }
 
-void Text::setPosition(Point pos)
+void Text::SetPosition(Point pos)
 {
 	this->pos = pos;
 }

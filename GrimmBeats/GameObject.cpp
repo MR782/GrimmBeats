@@ -15,6 +15,6 @@ void GameObject::Draw()
 	if (this->_blink) {
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)sin(Time::now_time.QuadPart * 0.5f + 0.5f));
 	}
-	this->anim->draw_anime(this->_position);
+	this->anim->DrawAnime(this->_position);
 	SetDrawBlendMode(DX_BLENDGRAPHTYPE_NORMAL, 255);
 }

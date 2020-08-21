@@ -5,7 +5,7 @@
 
 std::vector<std::shared_ptr<AudioObject>> Audio::audioobj;
 
-void AudioObject::set_default()
+void AudioObject::SetDefault()
 {
 	if (loop == NULL) {
 		loop = false;//ループ記述がない場合falseにする（ループしない）
@@ -23,7 +23,7 @@ AudioObject::AudioObject()
 	this->scopes.clear();
 }
 
-void Audio::register_audio(AudioObject& obj)
+void Audio::RegisterAudio(AudioObject& obj)
 {
 	//まだ読み込んでいないなら
 	if (obj.exist == false) {
@@ -33,7 +33,7 @@ void Audio::register_audio(AudioObject& obj)
 	}
 }
 
-void Audio::initialize()
+void Audio::Initialize()
 {
 	json11::Json json = JsonHelper::JsonInitialize("./data/json/audiosource.json");
 	//-------------------------------------------------------------
@@ -46,12 +46,12 @@ void Audio::initialize()
 		for (auto& scope : item["scope"].array_items()) {//読み込む際の識別子
 			audio->scopes.push_back(scope.string_value());
 		}
-		audio->set_default();//値が入っていない場合デフォルト値をセット
+		audio->SetDefault();//値が入っていない場合デフォルト値をセット
 		audioobj.push_back(std::move(audio));//所有権の移行
 	}
 }
 
-void Audio::play(std::string name, bool is_multiple)
+void Audio::Play(std::string name, bool is_multiple)
 {
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); ++itr) {
 		if ((*itr)->name == name) {//名前を見つけたら
@@ -73,13 +73,13 @@ void Audio::play(std::string name, bool is_multiple)
 	}
 }
 
-int Audio::load(std::string scope_)
+int Audio::Load(std::string scope_)
 {
 	int num = 0;
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); ++itr) {
 		if ((*itr)->exist == false) {//読み込まれていないなら
-			if ((*itr)->exist_scope(scope_)) {
-				register_audio(*(*itr));//登録
+			if ((*itr)->ExistScope(scope_)) {
+				RegisterAudio(*(*itr));//登録
 				num++;
 			}
 		}
@@ -87,22 +87,22 @@ int Audio::load(std::string scope_)
 	return num;//番号を返す
 }
 
-void Audio::stop_all()
+void Audio::StopAll()
 {
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); ++itr) {
 		//再生中なら
-		if (check_play((*itr)->name)) {
+		if (CheckPlay((*itr)->name)) {
 			StopSoundMem((*itr)->handle);//停止
 		}
 	}
 }
 
-void Audio::stop(std::string name)
+void Audio::Stop(std::string name)
 {
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); ++itr) {
 		if ((*itr)->name == name) {//名前を見つけたら
 			//再生中なら
-			if (check_play((*itr)->name)) {
+			if (CheckPlay((*itr)->name)) {
 				StopSoundMem((*itr)->handle);//停止
 				break;
 			}
@@ -110,7 +110,7 @@ void Audio::stop(std::string name)
 	}
 }
 
-void Audio::set_volume_audioname(std::string name, int percent)
+void Audio::SetVolumeAudioName(std::string name, int percent)
 {
 	//指定した名前のボリュームを設定する
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); itr++) {
@@ -118,7 +118,7 @@ void Audio::set_volume_audioname(std::string name, int percent)
 	}
 }
 
-void Audio::set_volume_audioscope(std::string scope, int percent)
+void Audio::SetVolumeAudioScope(std::string scope, int percent)
 {
 	//指定したスコープのボリュームを設定する
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); itr++) {
@@ -130,12 +130,12 @@ void Audio::set_volume_audioscope(std::string scope, int percent)
 	}
 }
 
-void Audio::stop_scope(std::string scope)
+void Audio::StopScope(std::string scope)
 {
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); ++itr) {
 		for (auto scope_itr = (*itr)->scopes.begin(); scope_itr != (*itr)->scopes.end(); scope_itr++) {
 			if ((*scope_itr == scope)) {
-				if (check_play((*itr)->name)) {
+				if (CheckPlay((*itr)->name)) {
 					StopSoundMem((*itr)->handle);
 				}
 			}
@@ -143,7 +143,7 @@ void Audio::stop_scope(std::string scope)
 	}
 }
 
-bool Audio::check_play(std::string name)
+bool Audio::CheckPlay(std::string name)
 {
 	bool check = false;
 	//読み込んだオーディオデータの数だけループを回す
@@ -159,7 +159,7 @@ bool Audio::check_play(std::string name)
 	return check;
 }
 
-bool Audio::check_play_scope(std::string scope)
+bool Audio::CheckPlayScope(std::string scope)
 {
 	bool check = false;
 	//読み込んだオーディオデータの数だけループを回す
@@ -177,7 +177,7 @@ bool Audio::check_play_scope(std::string scope)
 	return check;
 }
 
-void Audio::finalize()
+void Audio::Finalize()
 {
 	//読み込んだオーディオデータをクリア
 	InitSoundMem();//
@@ -185,7 +185,7 @@ void Audio::finalize()
 	audioobj.clear();
 }
 
-void Audio::delete_soundData_name(std::string name)
+void Audio::DeleteSoundDataName(std::string name)
 {
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); itr++) {
 		//名前が一致したら
@@ -197,7 +197,7 @@ void Audio::delete_soundData_name(std::string name)
 	}
 }
 
-void Audio::delete_soundData_scope(std::string scope)
+void Audio::DeleteSoundDataScope(std::string scope)
 {
 	//特定のスコープを持つAudioObjectのハンドルをメモリから削除
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); itr++) {
@@ -210,14 +210,14 @@ void Audio::delete_soundData_scope(std::string scope)
 	}
 }
 
-void Audio::delete_sound_dataAll()
+void Audio::DeleteSoundDataAll()
 {
 	for (auto itr = audioobj.begin(); itr != audioobj.end(); itr++) {
 		DeleteSoundMem((*itr)->handle);
 	}
 }
 
-bool AudioObject::exist_scope(std::string scope_)
+bool AudioObject::ExistScope(std::string scope_)
 {
 	bool check = false;
 	//そのオブジェクトのスコープの数だけ繰り返す

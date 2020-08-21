@@ -164,14 +164,18 @@
     <ClCompile Include="Lane.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="MovieResource.cpp" />
     <ClCompile Include="MusicDataManager.cpp" />
     <ClCompile Include="Necessary.cpp" />
     <ClCompile Include="Purpose.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScreenFunction.cpp" />
     <ClCompile Include="ScreenHelperGraph.cpp" />
     <ClCompile Include="ScreenSystem.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -187,14 +191,18 @@
     <ClInclude Include="Lane.h" />
     <ClInclude Include="MemoryFunc.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Movie.h" />
+    <ClInclude Include="MovieResource.h" />
     <ClInclude Include="MusicDataManager.h" />
     <ClInclude Include="Necessary.h" />
     <ClInclude Include="Purpose.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ScreenFunction.h" />
     <ClInclude Include="ScreenHelperGraph.h" />
     <ClInclude Include="ScreenSystem.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="TitleScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

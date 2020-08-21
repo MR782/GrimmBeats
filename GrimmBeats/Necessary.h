@@ -2,16 +2,9 @@
 #include<iostream>
 #include<Windows.h>
 #include<vector>
+#include"Scene.h"
 
 //ゲームを通して必要なものの定義
-
-//シーンリスト
-enum class SceneData {
-	title,//タイトルシーン
-	game,//ゲームシーン
-	result,//リザルトシーン
-	m_select//楽曲選択シーン
-};
 
 //難易度リスト
 enum class Level {
@@ -35,21 +28,18 @@ enum class MusicList {
 
 class Necessary {
 private:
-	static SceneData scene;//シーン
 	static MusicList m_list;//楽曲リスト
 	//false : フェードイン　true : フェードアウト
 	static bool fade_ioFlag;
 public:
 	static int speed;//ノーツの移動する速度
 
-	static void initialize();
+	static void Initialize();
 
 	#pragma region Setter/Getter
 	//false : フェードイン　true : フェードアウト
-	static void set_fade_ioFlag(bool);
-	//シーンのセット
-	static void set_scene(SceneData scene_);
+	static void SetFadeIOFlag(bool);
 	//フェードフラグ
-	static bool get_fade_ioFlag();
+	static bool GetFadeIOFlag();
 	#pragma endregion
 };

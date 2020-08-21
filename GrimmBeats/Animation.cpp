@@ -2,7 +2,7 @@
 #include"./dxlib/DxLib.h"
 //#include"CoreScene.h"
 
-void Animation::switch_anime()
+void Animation::SwitchAnime()
 {
 	//アニメーションの切り替え
 	current_anime++;
@@ -26,7 +26,7 @@ Animation::~Animation()
 	object.reset();
 }
 
-void Animation::draw_anime(Point point)
+void Animation::DrawAnime(Point point)
 {
 	//オブジェクトが空でないなら
 	if (object != nullptr) {
@@ -38,13 +38,13 @@ void Animation::draw_anime(Point point)
 		if (object->interval != 0) {//インターバルが設定されているなら
 			if (object->interval / current_rate == 1) { //インターバルをレートで割って答えが　1　なら
 				current_rate = 0;//レートを0に設定
-				switch_anime();//アニメーションの処理(画像切り替え)
+				SwitchAnime();//アニメーションの処理(画像切り替え)
 			}
 		}
 	}
 }
 
-void Animation::draw_anime(Vector2 point)
+void Animation::DrawAnime(Vector2 point)
 {
 	//オブジェクトが空でないなら
 	if (object != nullptr) {
@@ -56,17 +56,17 @@ void Animation::draw_anime(Vector2 point)
 		if (object->interval != 0) {//インターバルが設定されているなら
 			if (object->interval / current_rate == 1) { //インターバルをレートで割って答えが　1　なら
 				current_rate = 0;//レートを0に設定
-				switch_anime();//アニメーションの処理(画像切り替え)
+				SwitchAnime();//アニメーションの処理(画像切り替え)
 			}
 		}
 	}
 }
 
-void Animation::set(std::string name)
+void Animation::Set(std::string name)
 {
-	if (object != GraphicResource::get(name)) {
+	if (object != GraphicResource::Get(name)) {
 		//今のアニメーションと設定するアニメーションが違うなら
-		object = GraphicResource::get(name);//更新
+		object = GraphicResource::Get(name);//更新
 		current_rate = 0;
 		current_anime = 0;
 	}

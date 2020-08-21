@@ -44,7 +44,7 @@ void Lane::Draw()
 	for (auto itr = this->_lane.begin(); itr != this->_lane.end();itr++) {
 		//Map“à‚©‚çLaneName‚ðŽæ‚èo‚µ‚Ä‚»‚ê‚ÉˆÊ’u‚·‚éRect‚ðŽæ‚èo‚µ‚Ä‘ã“ü
 		Rect rect = (*this->_lane.find(LaneName((*itr).first))).second;
-		DrawBox(rect.x, rect.y, rect.x + rect.w, rect.y + rect.h, setColor(Color::Black), FALSE);
+		DrawBox(rect.x, rect.y, rect.x + rect.w, rect.y + rect.h, SetColor(Color::Black), FALSE);
 	}
 }
 

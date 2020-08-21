@@ -1,0 +1,14 @@
+{
+  "movie": [
+    {
+      "name": "Leaf",
+      "path": "./data/movie/nc96257.mp4",
+      "loop": true,
+      "scope": [
+        "title",
+        "leaf",
+        "all"
+      ]
+    }
+  ]
+}
