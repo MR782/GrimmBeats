@@ -5,12 +5,15 @@
 #include"SceneManager.h"
 #include"KeyBoard.h"
 #include"MemoryFunc.h"
+#include"Audio.h"
 #include"./dxlib/DxLib.h"
 
 void TitleScene::Initialize()
 {
 	//リソースのロード
 	MovieResource::Load("title");
+	Audio::Load("title");
+	Audio::Play("TitleBGM", true);
 	//初期化
 	#pragma region 背景の初期化
 	this->_move_background = false;
@@ -19,35 +22,33 @@ void TitleScene::Initialize()
 	this->_movie = std::make_unique<Movie>();
 	this->_movie->Set("Leaf");
 	this->graph_Xsize = ScreenData::width;//背景画像の大きさをセット
-	#pragma endregion
+#pragma endregion
 
 	#pragma region オブジェクトの初期化
-	//ガイドレベルの初期化
+//ガイドレベルの初期化
 	this->_titleGuide = new TitleGuide();
 	MemoryFunction::CheckMem(this->_titleGuide);
 	this->_titleGuide->Initialize();
-	#pragma endregion
-	//背景画像の初期値セット
+#pragma endregion
+
+	//初期値セット
 	this->_bgPosition["bg1"] = Point(0, 0);
+	this->decisionSEName = "decision_Title";
+	this->nextScene = SceneKind::ModeSelect;
 }
 
 void TitleScene::Finalize()
 {
 	this->_movie->Delete();
 	this->_movie.reset();
-
-	//this->_titleGuide->Finalize();
+	Audio::DeleteSoundDataScope("title");
 	delete this->_titleGuide;
 }
 
 void TitleScene::Update()
 {
-	//フェードIOの最中でなければ
-	if (ScreenFunction::CheckBlendMin()) {
-		//this->_titleGuide->Update();
-	}
 	//シーン切り替え-----ENTERを押すとシーン遷移-----------------------------------
-	sceneManager->ChangeScene(KeyBoard::KeyDown(KEY_INPUT_RETURN), new GameScene());
+	sceneManager->ChangeScene(KeyBoard::KeyDown(KEY_INPUT_RETURN),this->nextScene);
 }
 
 void TitleScene::Draw()

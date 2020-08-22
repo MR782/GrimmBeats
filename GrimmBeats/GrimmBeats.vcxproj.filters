@@ -104,6 +104,12 @@
     <Filter Include="ソース ファイル\GameObject\UI\TitleUI\TitleLogo">
       <UniqueIdentifier>{ed20b66d-6e65-4619-bf97-1c1835f6347b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Scene\MusicSelectScene">
+      <UniqueIdentifier>{b70da94b-b4dc-4ffc-a65a-6d2d19d66d40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\ModeSelectScene">
+      <UniqueIdentifier>{71e5c2c1-f41f-4316-b56f-7f5e5a2475fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -187,6 +193,9 @@
     <ClCompile Include="TitleLogo.cpp">
       <Filter>ソース ファイル\GameObject\UI\TitleUI\TitleLogo</Filter>
     </ClCompile>
+    <ClCompile Include="ModeSelectScene.cpp">
+      <Filter>ソース ファイル\Scene\ModeSelectScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -269,6 +278,9 @@
     </ClInclude>
     <ClInclude Include="TitleLogo.h">
       <Filter>ソース ファイル\GameObject\UI\TitleUI\TitleLogo</Filter>
+    </ClInclude>
+    <ClInclude Include="ModeSelectScene.h">
+      <Filter>ソース ファイル\Scene\ModeSelectScene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

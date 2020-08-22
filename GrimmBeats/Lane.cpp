@@ -26,7 +26,6 @@ void Lane::Initialize()
 	#pragma endregion
 
 	this->_anim = nullptr;
-	this->_blink = false;
 }
 
 void Lane::Finalize()

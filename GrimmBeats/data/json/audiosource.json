@@ -1,23 +1,82 @@
 {
   "audio": [
     {
-      "name": "decision",
+      "name": "decision_ModeSelect",
       "loop": false,
-      "path": "./data/BGM_SE/SE/SystemDecision.ogg",
+      "path": "./data/BGM_SE/SE/decision(ModeSelect).mp3",
       "scope": [
         "decision",
         "se",
         "system",
+        "modeselect",
         "all"
       ]
     },
     {
-      "name": "fancie",
+      "name": "decision_MusicSelect",
       "loop": false,
-      "path": "./data/BGM_SE/BGM/fancie.mp3",
+      "path": "./data/BGM_SE/SE/decision(MusicSelect).mp3",
+      "scope": [
+        "decision",
+        "se",
+        "system",
+        "musicselect",
+        "all"
+      ]
+    },
+    {
+      "name": "decision_Title",
+      "loop": false,
+      "path": "./data/BGM_SE/SE/decision(Title).mp3",
+      "scope": [
+        "decision",
+        "se",
+        "system",
+        "title",
+        "all"
+      ]
+    },
+    {
+      "name": "cursor_ModeSelect",
+      "loop": false,
+      "path": "./data/BGM_SE/SE/cursor(ModeSelect).mp3",
+      "scope": [
+        "decision",
+        "se",
+        "system",
+        "modeselect",
+        "all"
+      ]
+    },
+    {
+      "name": "cursor_MusicSelect",
+      "loop": false,
+      "path": "./data/BGM_SE/SE/cursor(MusicSelect).mp3",
+      "scope": [
+        "decision",
+        "se",
+        "system",
+        "musicselect",
+        "all"
+      ]
+    },
+    {
+      "name": "TitleBGM",
+      "loop": true,
+      "path": "./data/BGM_SE/BGM/Title.mp3",
       "scope": [
         "bgm",
-        "game",
+        "title",
+        "all"
+      ]
+    },
+    {
+      "name": "ModeSelectBGM",
+      "loop": true,
+      "path": "./data/BGM_SE/BGM/ModeSelect.mp3",
+      "scope": [
+        "bgm",
+        "modeselect",
         "all"
       ]
     }

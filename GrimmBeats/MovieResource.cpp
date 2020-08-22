@@ -47,6 +47,9 @@ void MovieResource::Initialize()
 
 void MovieResource::Finalize()
 {
+	for (auto itr = movie_obj.begin(); itr != movie_obj.end(); itr++) {
+		DeleteGraph((*itr)->handle);
+	}
 	movie_obj.clear();
 }
 

@@ -16,6 +16,8 @@
 
 SceneManager* sceneManager;
 
+#include <crtdbg.h>
+
 // WinMain関数
 int WINAPI WinMain(
 	_In_ HINSTANCE hInstance, _In_opt_  HINSTANCE hPrevInstance,
@@ -69,6 +71,7 @@ int WINAPI WinMain(
 		#pragma endregion
 
 		sceneManager->Initialize();
+
 		Time::Initialize();
 		KeyBoard::Initialize();
 		#pragma region ゲームループ
@@ -89,6 +92,7 @@ int WINAPI WinMain(
 			#pragma endregion
 		}
 		#pragma endregion
+		sceneManager->Finalize();
 	}
 	#pragma region エラー時の処理
 	catch (const char* msg) {
@@ -97,11 +101,13 @@ int WINAPI WinMain(
 	}
 	#pragma endregion
 
-	#pragma region 入力関係の終了処理
+	#pragma region 終了処理
 	KeyBoard::Finalize();
+	Audio::Finalize();
+	GraphicResource::Finalize();
+	MovieResource::Finalize();
 	#pragma endregion
-
-
+	delete sceneManager;
 
 	DxLib_End();			// ＤＸライブラリ使用の終了処理
 	return 0;				// ゲーム終了

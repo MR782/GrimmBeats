@@ -7,6 +7,8 @@ Scene::Scene()
 	this->_background_graph = 0;
 	this->_move_background = false;
 	this->graph_Xsize = 0;
+	this->decisionSEName = "";
+	this->nextScene = SceneKind::Title;
 }
 
 void Scene::Initialize()
@@ -26,6 +28,11 @@ void Scene::Draw()
 		return;
 	}
 	this->DrawBG();
+}
+
+std::string Scene::GetDecisionSEName()
+{
+	return this->decisionSEName;
 }
 
 void Scene::DrawBG()

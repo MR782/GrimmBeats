@@ -163,6 +163,7 @@
     <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="Lane.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ModeSelectScene.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="MovieResource.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="KeyBoard.h" />
     <ClInclude Include="Lane.h" />
     <ClInclude Include="MemoryFunc.h" />
+    <ClInclude Include="ModeSelectScene.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="MovieResource.h" />
