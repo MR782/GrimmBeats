@@ -30,8 +30,8 @@ void Scene::Draw()
 
 void Scene::DrawBG()
 {
-	DrawExtendGraph(this->_bgPosition["bg1"].x, this->_bgPosition["bg1"].y,
-		this->_bgPosition["bg1"].x + ScreenData::width, ScreenData::height,
+	DrawExtendGraph(0, 0,
+		ScreenData::width, ScreenData::height,
 		this->_background_graph, FALSE);
 }
 

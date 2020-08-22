@@ -7,6 +7,7 @@ public:
 	static void Finalize();
 	static void Update();
 
+	static int freamtime;
 	static LARGE_INTEGER now_time;
 	static LARGE_INTEGER start_time;
 	static LARGE_INTEGER freq;

@@ -11,9 +11,6 @@
     <Filter Include="ソース ファイル\GameObject\Base">
       <UniqueIdentifier>{dd97625d-96eb-453e-8450-9b9cca4664f4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GameObject\Base\GameObject">
-      <UniqueIdentifier>{ee250ad2-5998-4fa6-8584-df2ea8b58ad4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Commponent">
       <UniqueIdentifier>{4ef993ae-9951-4ba3-b18f-cd9bb730aad8}</UniqueIdentifier>
     </Filter>
@@ -101,6 +98,12 @@
     <Filter Include="ソース ファイル\GameObject\UI\TitleUI">
       <UniqueIdentifier>{60d58891-02fd-4668-a162-026fe1bc37fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\TitleUI\Guide">
+      <UniqueIdentifier>{3e998686-6ced-4b21-b258-d9830c7f67be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\TitleUI\TitleLogo">
+      <UniqueIdentifier>{ed20b66d-6e65-4619-bf97-1c1835f6347b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -132,9 +135,6 @@
     </ClCompile>
     <ClCompile Include="ScreenSystem.cpp">
       <Filter>ソース ファイル\Commponent\Screen\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>ソース ファイル\GameObject\Base\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="json11.cpp">
       <Filter>ソース ファイル\Commponent\Resource\Json</Filter>
@@ -178,6 +178,15 @@
     <ClCompile Include="Movie.cpp">
       <Filter>ソース ファイル\Commponent\Resource\Movie</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>ソース ファイル\GameObject\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleGuide.cpp">
+      <Filter>ソース ファイル\GameObject\UI\TitleUI\Guide</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLogo.cpp">
+      <Filter>ソース ファイル\GameObject\UI\TitleUI\TitleLogo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -209,9 +218,6 @@
     </ClInclude>
     <ClInclude Include="ScreenSystem.h">
       <Filter>ソース ファイル\Commponent\Screen\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>ソース ファイル\GameObject\Base\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>ソース ファイル\Commponent\Time</Filter>
@@ -254,6 +260,15 @@
     </ClInclude>
     <ClInclude Include="Movie.h">
       <Filter>ソース ファイル\Commponent\Resource\Movie</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleGuide.h">
+      <Filter>ソース ファイル\GameObject\UI\TitleUI\Guide</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>ソース ファイル\GameObject\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLogo.h">
+      <Filter>ソース ファイル\GameObject\UI\TitleUI\TitleLogo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

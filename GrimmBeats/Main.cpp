@@ -33,11 +33,12 @@ int WINAPI WinMain(
 			GetDefaultState(&ScreenData::width, &ScreenData::height, NULL);//フルスク設定
 			break;
 		case IDNO:
-			ScreenData::width = 1024;
-			ScreenData::height = 768;
+			ScreenData::width = 1048;
+			ScreenData::height = 600;
 			break;
 		}
 		SetGraphMode(ScreenData::width, ScreenData::height, 32);//ウィンドウのサイズを決める
+		SetWindowSize(ScreenData::width, ScreenData::height);
 		ChangeWindowMode(TRUE);// ウィンドウモード変更
 	}
 	#pragma endregion

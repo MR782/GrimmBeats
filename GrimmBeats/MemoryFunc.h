@@ -1,5 +1,6 @@
 #pragma once
 //#include"GameObject.h"
+#include<memory>
 
 class MemoryFunction {
 public:
@@ -10,5 +11,5 @@ public:
 template<typename T>
 void MemoryFunction::CheckMem(T* obj)
 {
-	if (obj == nullptr)throw"Object is nullptr";
+	if (obj == nullptr)throw("Object is nullptr");
 }

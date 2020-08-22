@@ -10,11 +10,6 @@ GameObject::~GameObject()
 
 void GameObject::Draw()
 {
-	if (this->anim == nullptr) return;
-	//オブジェクトを点滅させたいときに処理を行う
-	if (this->_blink) {
-		SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)sin(Time::now_time.QuadPart * 0.5f + 0.5f));
-	}
-	this->anim->DrawAnime(this->_position);
-	SetDrawBlendMode(DX_BLENDGRAPHTYPE_NORMAL, 255);
+	if (this->_anim == nullptr) return;
+	this->_anim->DrawAnime(this->_position);
 }

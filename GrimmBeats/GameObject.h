@@ -4,8 +4,7 @@
 
 class GameObject {
 protected:
-	std::unique_ptr<Animation> anim;
-	bool _blink;
+	std::unique_ptr<Animation> _anim;
 	Vector2 _position;
 public:
     virtual ~GameObject();

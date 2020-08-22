@@ -25,7 +25,7 @@ void Lane::Initialize()
 	this->_keycode[LaneName::KLane] = KEY_INPUT_K;
 	#pragma endregion
 
-	this->anim = nullptr;
+	this->_anim = nullptr;
 	this->_blink = false;
 }
 

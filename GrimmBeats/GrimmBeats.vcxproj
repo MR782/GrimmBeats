@@ -175,6 +175,8 @@
     <ClCompile Include="ScreenHelperGraph.cpp" />
     <ClCompile Include="ScreenSystem.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="TitleGuide.cpp" />
+    <ClCompile Include="TitleLogo.cpp" />
     <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +204,8 @@
     <ClInclude Include="ScreenHelperGraph.h" />
     <ClInclude Include="ScreenSystem.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="TitleGuide.h" />
+    <ClInclude Include="TitleLogo.h" />
     <ClInclude Include="TitleScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

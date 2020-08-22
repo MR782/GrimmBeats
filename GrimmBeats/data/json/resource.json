@@ -31,6 +31,22 @@
         "back",
         "all"
       ]
+    },
+    {
+      "name": "TitleGuide",
+      "path": "./data/graph/title/TitleGuide.png",
+      "width": 512,
+      "height": 64,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "title",
+        "ui",
+        "all"
+      ]
     }
   ]
 }

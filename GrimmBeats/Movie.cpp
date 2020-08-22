@@ -23,6 +23,7 @@ void Movie::Draw()
 
 void Movie::Set(std::string name)
 {
+	if (this == nullptr) throw("Movieのメモリが確保されていません");
 	//名前が違うなら更新
 	if (object->name != name) {
 		this->object = MovieResource::Get(name);

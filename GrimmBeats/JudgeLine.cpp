@@ -7,10 +7,8 @@ JudgeLine::~JudgeLine()
 
 void JudgeLine::Initialize()
 {
-	this->anim = std::make_unique<Animation>();
-	this->anim->Set("");
-
-	this->_blink = false;
+	this->_anim = std::make_unique<Animation>();
+	this->_anim->Set("");
 	this->_position = Vector2();
 }
 
