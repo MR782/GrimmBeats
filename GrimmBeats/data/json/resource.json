@@ -47,6 +47,70 @@
         "ui",
         "all"
       ]
+    },
+    {
+      "name": "ModeSelectBack",
+      "path": "./data/graph/modeselect/modeselectBack.png",
+      "width": 1280,
+      "height": 1920,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "modeselect",
+        "back",
+        "all"
+      ]
+    },
+    {
+      "name": "ModeSelectCursor",
+      "path": "./data/graph/modeselect/Cursol.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "modeselect",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "GamePlayButton",
+      "path": "./data/graph/modeselect/GamePlayButton.png",
+      "width": 400,
+      "height": 200,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "modeselect",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "MusicPlayerButton",
+      "path": "./data/graph/modeselect/MusicPlayerButton.png",
+      "width": 400,
+      "height": 200,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "modeselect",
+        "ui",
+        "all"
+      ]
     }
   ]
 }
