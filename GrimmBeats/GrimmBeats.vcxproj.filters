@@ -110,6 +110,15 @@
     <Filter Include="ソース ファイル\Scene\ModeSelectScene">
       <UniqueIdentifier>{71e5c2c1-f41f-4316-b56f-7f5e5a2475fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\ModeSelectUI">
+      <UniqueIdentifier>{c2be57e3-941e-4d08-aad8-d7e6b99bdda0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\ModeSelectUI\Cursor">
+      <UniqueIdentifier>{29433183-c16e-45ea-a265-1acb50fc6917}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\ModeSelectUI\Item">
+      <UniqueIdentifier>{77ae6556-8c43-44d5-bd0a-9c6f10120937}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -196,6 +205,15 @@
     <ClCompile Include="ModeSelectScene.cpp">
       <Filter>ソース ファイル\Scene\ModeSelectScene</Filter>
     </ClCompile>
+    <ClCompile Include="ModeSelectCursor.cpp">
+      <Filter>ソース ファイル\GameObject\UI\ModeSelectUI\Cursor</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicPlayerButton.cpp">
+      <Filter>ソース ファイル\GameObject\UI\ModeSelectUI\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="GamePlayButton.cpp">
+      <Filter>ソース ファイル\GameObject\UI\ModeSelectUI\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -281,6 +299,18 @@
     </ClInclude>
     <ClInclude Include="ModeSelectScene.h">
       <Filter>ソース ファイル\Scene\ModeSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="ModeSelectCursor.h">
+      <Filter>ソース ファイル\GameObject\UI\ModeSelectUI\Cursor</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicPlayerButton.h">
+      <Filter>ソース ファイル\GameObject\UI\ModeSelectUI\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlayButton.h">
+      <Filter>ソース ファイル\GameObject\UI\ModeSelectUI\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSelectScene.h">
+      <Filter>ソース ファイル\Scene\MusicSelectScene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
