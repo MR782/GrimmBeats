@@ -19,5 +19,7 @@ public:
 	void Update()override;
 	void Draw()override;
 
+	Rect GetRect(LaneName);
 	std::map<LaneName,int> GetKeyCode();
+	int GetKeyCode(LaneName);
 };

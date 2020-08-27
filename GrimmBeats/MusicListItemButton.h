@@ -9,7 +9,7 @@ class MusicListItemButton : public GameObject {
 		std::string _graphName;
 		Rect _rect;
 	};
-	std::vector<MusicListItem> items;
+	std::vector<MusicListItem> _items;
 
 	void AddItem(std::string name, std::string graphname, Rect rect);
 public:

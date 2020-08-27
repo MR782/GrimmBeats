@@ -10,13 +10,13 @@
 #include<memory>
 
 class MusicSelectScene : public Scene {
-	BPMLabel* bpmLabel;
-	MusicNameLabel* musicNameLabel;
-	ComposerLabel* composerLabel;
-	MusicSelectCursor* cursor;
-	SpeedLabel* speedLabel;
+	BPMLabel* _bpmLabel;
+	MusicNameLabel* _musicNameLabel;
+	ComposerLabel* _composerLabel;
+	MusicSelectCursor* _cursor;
+	SpeedLabel* _speedLabel;
 
-	std::unique_ptr<Animation> uiBoard;
+	std::unique_ptr<Animation> _uiBoard;
 public:
 	MusicSelectScene();
 	void Initialize()override;
@@ -24,10 +24,6 @@ public:
 	void Update()override;
 	void Draw()override;
 };
-
-namespace MusicName {
-	extern std::string musicName;
-}
 
 namespace UIModel {
 	extern MusicListItemButton* musicItemList;

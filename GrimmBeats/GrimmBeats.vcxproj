@@ -178,6 +178,7 @@
     <ClCompile Include="MusicSelectCursor.cpp" />
     <ClCompile Include="MusicSelectScene.cpp" />
     <ClCompile Include="Necessary.cpp" />
+    <ClCompile Include="Notes.cpp" />
     <ClCompile Include="Purpose.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="MusicSelectCursor.h" />
     <ClInclude Include="MusicSelectScene.h" />
     <ClInclude Include="Necessary.h" />
+    <ClInclude Include="Notes.h" />
     <ClInclude Include="Purpose.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />

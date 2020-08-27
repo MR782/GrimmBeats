@@ -2,91 +2,105 @@
 #include"MusicDataManager.h"
 #include"GraphicResource.h"
 #include"MemoryFunc.h"
+#include"SceneManager.h"
 #include"ScreenSystem.h"
+#include"KeyBoard.h"
+#include"ScreenFunction.h"
 #include"Audio.h"
 
-std::string MusicName::musicName;
 MusicListItemButton* UIModel::musicItemList;
-
 
 MusicSelectScene::MusicSelectScene()
 {
 	UIModel::musicItemList = nullptr;
-	this->bpmLabel = nullptr;
-	this->composerLabel = nullptr;
-	this->musicNameLabel = nullptr;
-	this->cursor = nullptr;
-	this->uiBoard = nullptr;
-	this->speedLabel = nullptr;
+	this->_bpmLabel = nullptr;
+	this->_composerLabel = nullptr;
+	this->_musicNameLabel = nullptr;
+	this->_cursor = nullptr;
+	this->_uiBoard = nullptr;
+	this->_speedLabel = nullptr;
 }
 
 void MusicSelectScene::Initialize()
 {
-	Audio::Load("game");
+	Audio::Load("musicselect");
+	Audio::SetVolumeAudioName("Air_DEMO", 75);
+	Audio::SetVolumeAudioName("PROVIDENCE-CORE_DEMO", 75);
 
 	#pragma region UIオブジェクトの生成と初期化
-	this->bpmLabel = new BPMLabel();
-	this->composerLabel = new ComposerLabel();
-	this->musicNameLabel = new MusicNameLabel();
-	this->cursor = new MusicSelectCursor();
-	this->speedLabel = new SpeedLabel();
+	this->_bpmLabel = new BPMLabel();
+	this->_composerLabel = new ComposerLabel();
+	this->_musicNameLabel = new MusicNameLabel();
+	this->_cursor = new MusicSelectCursor();
+	this->_speedLabel = new SpeedLabel();
 	UIModel::musicItemList = new MusicListItemButton();
 
 	MemoryFunction::CheckMem(UIModel::musicItemList);
-	MemoryFunction::CheckMem(this->bpmLabel);
-	MemoryFunction::CheckMem(this->composerLabel);
-	MemoryFunction::CheckMem(this->musicNameLabel);
-	MemoryFunction::CheckMem(this->cursor);
-	MemoryFunction::CheckMem(this->speedLabel);
+	MemoryFunction::CheckMem(this->_bpmLabel);
+	MemoryFunction::CheckMem(this->_composerLabel);
+	MemoryFunction::CheckMem(this->_musicNameLabel);
+	MemoryFunction::CheckMem(this->_cursor);
+	MemoryFunction::CheckMem(this->_speedLabel);
 
-	this->bpmLabel->Initialize();
-	this->composerLabel->Initialize();
-	this->musicNameLabel->Initialize();
-	this->cursor->Initialize();
-	this->speedLabel->Initialize();
+	this->_bpmLabel->Initialize();
+	this->_composerLabel->Initialize();
+	this->_musicNameLabel->Initialize();
+	this->_cursor->Initialize();
+	this->_speedLabel->Initialize();
 	UIModel::musicItemList->Initialize();
 	#pragma endregion
 
+	#pragma region 値の初期化
 	this->nextScene = SceneKind::Game;
 	this->_background_graph = GraphicResource::GetHandle("MusicSelectBack")[0];
-	this->uiBoard = std::make_unique<Animation>();
-	this->uiBoard->Set("UIBoard");
-	MusicName::musicName = "Air";
+	this->_uiBoard = std::make_unique<Animation>();
+	this->_uiBoard->Set("UIBoard");
+	SelectMusic::Name = "Air";
+	Necessary::speed = 1;
+	this->decisionSEName = "decision_MusicSelect";
+	#pragma endregion 
 
-	Audio::Play(MusicDataManager::GetInfo(MusicName::musicName).demomusicName, false);
+	Audio::Play(MusicDataManager::GetInfo(SelectMusic::Name).demomusicName, false);
 }
 
 void MusicSelectScene::Finalize()
 {
-	this->composerLabel->Finalize();
-	this->bpmLabel->Finalize();
-	this->musicNameLabel->Finalize();
-	this->cursor->Finalize();
-	this->speedLabel->Finalize();
+	this->_composerLabel->Finalize();
+	this->_bpmLabel->Finalize();
+	this->_musicNameLabel->Finalize();
+	this->_cursor->Finalize();
+	this->_speedLabel->Finalize();
 	UIModel::musicItemList->Finalize();
 
 	delete UIModel::musicItemList;
-	delete this->musicNameLabel;
-	delete this->composerLabel;
-	delete this->bpmLabel;
-	delete this->cursor;
+	delete this->_musicNameLabel;
+	delete this->_composerLabel;
+	delete this->_bpmLabel;
+	delete this->_cursor;
+
+	Audio::DeleteSoundDataScope("musicselect");
+	Audio::StopAll();
 }
 
 void MusicSelectScene::Update()
 {
-	this->cursor->Update();
-	this->speedLabel->Update();
+	if (ScreenFunction::CheckBlendMin()) {
+		this->_cursor->Update();
+		this->_speedLabel->Update();
+	}
+	//------------------------------------------------------------------------------
+	sceneManager->ChangeScene(KeyBoard::KeyDown(KEY_INPUT_RETURN), this->nextScene);
 }
 
 void MusicSelectScene::Draw()
 {
 	this->DrawBG();
 	//映像描画
-	this->uiBoard->ExtendAnimeDraw(Rect(0,0,ScreenData::width / 2,ScreenData::height / 2));
-	this->musicNameLabel->Draw();
-	this->bpmLabel->Draw();
-	this->composerLabel->Draw();
-	this->cursor->Draw();
+	this->_uiBoard->ExtendAnimeDraw(Rect(0,0,ScreenData::width / 2,ScreenData::height / 2));
+	this->_musicNameLabel->Draw();
+	this->_bpmLabel->Draw();
+	this->_composerLabel->Draw();
+	this->_cursor->Draw();
 	UIModel::musicItemList->Draw();
-	this->speedLabel->Draw();
+	this->_speedLabel->Draw();
 }

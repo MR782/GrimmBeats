@@ -78,7 +78,7 @@ void ModeSelectScene::Update()
 void ModeSelectScene::Draw()
 {
 	this->DrawBG();
+	ModeSelectUI::cursol->Draw();
 	ModeSelectUI::gameplay_button->Draw();
 	ModeSelectUI::musicplay_button->Draw();
-	ModeSelectUI::cursol->Draw();
 }

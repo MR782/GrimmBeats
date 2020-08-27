@@ -3,8 +3,9 @@
 #include"BasicUI.h"
 
 class ComposerLabel :public GameObject {
-	Text* text;
+	Text* _text;
 public:
+	ComposerLabel();
 	void Initialize()override;
 	void Finalize()override;
 	void Update()override;

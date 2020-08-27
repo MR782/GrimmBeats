@@ -27,6 +27,13 @@ enum class MusicList {
 	*/
 };
 
+enum class JudgeResult{
+	Perfect,
+	Great,
+	Good,
+	Miss
+};
+
 class Necessary {
 private:
 	static std::map<MusicList, std::string> musicListItem;

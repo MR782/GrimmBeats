@@ -13,6 +13,7 @@ private:
 	void SetPosition();
 	void CursorMove(int,NextScene);
 public:
+	ModeSelectCursor();
 	void Initialize()override;
 	void Finalize()override;
 	void Update()override;

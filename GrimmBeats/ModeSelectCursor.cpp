@@ -4,6 +4,11 @@
 #include"Audio.h"
 #include"./dxlib/DxLib.h"
 
+ModeSelectCursor::ModeSelectCursor()
+{
+	this->_nextScene = NextScene::MusicSelect;
+}
+
 void ModeSelectCursor::Initialize()
 {
 	this->_anim = std::make_unique<Animation>();
@@ -50,6 +55,7 @@ void ModeSelectCursor::SetPosition()
 		this->_draw = ModeSelectUI::musicplay_button->GetDrawRect();
 		break;
 	}
+	this->_draw -= 10;
 }
 
 void ModeSelectCursor::CursorMove(int key, NextScene next)

@@ -4,33 +4,35 @@
 #include"MemoryFunc.h"
 #include"Audio.h"
 
+std::string SelectMusic::Name;
+
 void SceneManager::Initialize()
 {
 	ScreenFunction::Initialize();
 
-	this->nowScene = new TitleScene();//初期シーンの設定
-	this->nowScene->Initialize();
+	this->_nowScene = new TitleScene();//初期シーンの設定
+	this->_nowScene->Initialize();
 }
 
 void SceneManager::Finalize()
 {
-	this->nowScene->Finalize();
+	this->_nowScene->Finalize();
 
 	ScreenFunction::Finalize();
 
-	delete this->nowScene;
+	delete this->_nowScene;
 }
 
 void SceneManager::Update()
 {
-	this->nowScene->Update();
+	this->_nowScene->Update();
 
 	ScreenFunction::Update();
 }
 
 void SceneManager::Draw()
 {
-	this->nowScene->Draw();
+	this->_nowScene->Draw();
 
 	ScreenFunction::Draw();
 }
@@ -38,7 +40,7 @@ void SceneManager::Draw()
 bool SceneManager::ChangeScene(bool trriger, SceneKind nextscene)
 {
 	if (trriger && ScreenFunction::CheckBlendMin()) {
-		Audio::Play(this->nowScene->GetDecisionSEName(), false);
+		Audio::Play(this->_nowScene->GetDecisionSEName(), false);
 		Necessary::SetFadeIOFlag(true);//フェードアウト開始
 	}
 	if (ScreenFunction::CheckBlendMax()) {
@@ -65,12 +67,12 @@ Scene* SceneManager::SetNextScene(SceneKind kind)
 
 void SceneManager::SetScene(SceneKind kind)
 {
-	MemoryFunction::CheckMem(this->nowScene);
-	this->nowScene->Finalize();//現在のシーンの終了処理
-	delete this->nowScene;
+	MemoryFunction::CheckMem(this->_nowScene);
+	this->_nowScene->Finalize();//現在のシーンの終了処理
+	delete this->_nowScene;
 
 	//シーンの更新
-	this->nowScene = SetNextScene(kind);
-	MemoryFunction::CheckMem(this->nowScene);
-	this->nowScene->Initialize();
+	this->_nowScene = SetNextScene(kind);
+	MemoryFunction::CheckMem(this->_nowScene);
+	this->_nowScene->Initialize();
 }

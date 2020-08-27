@@ -3,9 +3,10 @@
 #include"BasicUI.h"
 
 class SpeedLabel :public GameObject {
-	Text* text;
-	Rect drawRect;
+	Text* _text;
+	Rect _drawRect;
 public:
+	SpeedLabel();
 	void Initialize()override;
 	void Finalize()override;
 	void Update()override;

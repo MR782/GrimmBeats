@@ -8,6 +8,12 @@
 #include"Audio.h"
 #include"./dxlib/DxLib.h"
 
+TitleScene::TitleScene()
+{
+	this->_titleGuide = nullptr;
+	this->_titleLogo = nullptr;
+}
+
 void TitleScene::Initialize()
 {
 	//リソースのロード
@@ -25,11 +31,14 @@ void TitleScene::Initialize()
 #pragma endregion
 
 	#pragma region オブジェクトの初期化
-//ガイドレベルの初期化
+	//ガイドレベルの初期化
 	this->_titleGuide = new TitleGuide();
+	this->_titleLogo = new TitleLogo();
+	MemoryFunction::CheckMem(this->_titleLogo);
 	MemoryFunction::CheckMem(this->_titleGuide);
 	this->_titleGuide->Initialize();
-#pragma endregion
+	this->_titleLogo->Initialize();
+	#pragma endregion
 
 	//初期値セット
 	this->_bgPosition["bg1"] = Point(0, 0);
@@ -42,6 +51,10 @@ void TitleScene::Finalize()
 	this->_movie->Delete();
 	this->_movie.reset();
 	Audio::DeleteSoundDataScope("title");
+	this->_titleGuide->Finalize();
+	this->_titleLogo->Finalize();
+
+	delete this->_titleLogo;
 	delete this->_titleGuide;
 }
 
@@ -59,5 +72,6 @@ void TitleScene::Draw()
 	this->_movie->Draw();
 
 	//オブジェクト描画
+	this->_titleLogo->Draw();
 	this->_titleGuide->Draw();
 }

@@ -6,7 +6,7 @@
 #include"Movie.h"
 
 class SceneManager {
-	Scene* nowScene;
+	Scene* _nowScene;
 
 	Scene* SetNextScene(SceneKind kind);
 	void SetScene(SceneKind nextScene);
@@ -18,5 +18,9 @@ public:
 
 	bool ChangeScene(bool trriger, SceneKind nextscene);
 };
+
+namespace SelectMusic {
+	extern std::string Name;
+}
 
 extern SceneManager* sceneManager;

@@ -6,7 +6,7 @@ void MusicListItemButton::AddItem(std::string name, std::string graphname, Rect 
 	MusicListItem item = MusicListItem(name,rect);
 	item._anime = std::make_unique<Animation>();
 	item._anime->Set(graphname);
-	this->items.push_back(std::move(item));
+	this->_items.push_back(std::move(item));
 }
 
 void MusicListItemButton::Initialize()
@@ -25,14 +25,14 @@ void MusicListItemButton::Update()
 
 void MusicListItemButton::Draw()
 {
-	for (auto itr = this->items.begin(); itr != this->items.end(); itr++) {
+	for (auto itr = this->_items.begin(); itr != this->_items.end(); itr++) {
 		(*itr)._anime->ExtendAnimeDraw((*itr)._rect);
 	}
 }
 
 Rect MusicListItemButton::GetRect(std::string name)
 {
-	for (auto itr = this->items.begin(); itr != this->items.end(); itr++) {
+	for (auto itr = this->_items.begin(); itr != this->_items.end(); itr++) {
 		if ((*itr)._name == name) {
 			return (*itr)._rect;
 		}

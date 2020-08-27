@@ -33,6 +33,22 @@
       ]
     },
     {
+      "name": "TitleLogo",
+      "path": "./data/graph/title/TitleLogo.png",
+      "width": 1920,
+      "height": 1080,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "title",
+        "ui",
+        "all"
+      ]
+    },
+    {
       "name": "TitleBack",
       "path": "./data/graph/title/titleBack.png",
       "width": 1280,
@@ -82,7 +98,7 @@
     },
     {
       "name": "ModeSelectCursor",
-      "path": "./data/graph/modeselect/Cursol.png",
+      "path": "./data/graph/modeselect/cursor.png",
       "width": 100,
       "height": 100,
       "vertical": 1,

@@ -4,16 +4,21 @@
 #include"KeyBoard.h"
 #include"./dxlib/DxLib.h"
 
+SpeedLabel::SpeedLabel()
+{
+	this->_text = nullptr;
+}
+
 void SpeedLabel::Initialize()
 {
 	this->_anim = std::make_unique<Animation>();
 	this->_anim->Set("TxtBox");
 	// 1048:600
-	this->drawRect = Rect(0, ScreenData::height / 2 + ScreenData::height / 10,
+	this->_drawRect = Rect(0, ScreenData::height / 2 + ScreenData::height / 10,
 		(ScreenData::width / 2), ScreenData::height / 10);
 	#pragma region テキスト(ラベルの生成・初期化)
-	this->text = new Text();
-	this->text->SetFont("SPEED : <(DF) %2d (JK)>", Point(this->drawRect.x + 5, this->drawRect.y + 10), CreateMyFont((ScreenData::height / 10) - 25, 16, false), SetColor(Color::Black));
+	this->_text = new Text();
+	this->_text->SetFont("SPEED : <(DF) %2d (JK)>", Point(this->_drawRect.x + 5, this->_drawRect.y + 10), CreateMyFont((ScreenData::height / 10) - 25, 16, false), SetColor(Color::Black));
 	#pragma endregion
 }
 
@@ -29,6 +34,6 @@ void SpeedLabel::Update()
 
 void SpeedLabel::Draw()
 {
-	this->_anim->ExtendAnimeDraw(drawRect);
-	this->text->DrawFormatFont(Necessary::speed);
+	this->_anim->ExtendAnimeDraw(_drawRect);
+	this->_text->DrawFormatFont(Necessary::speed);
 }

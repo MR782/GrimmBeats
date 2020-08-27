@@ -3,8 +3,9 @@
 #include"BasicUI.h"
 
 class MusicNameLabel :public GameObject {
-	Text* text;
+	Text* _text;
 public:
+	MusicNameLabel();
 	void Initialize()override;
 	void Finalize()override;
 	void Update()override;

@@ -98,7 +98,7 @@
       "scope": [
         "bgm",
         "air",
-        "game",
+        "musicselect",
         "all"
       ]
     },
@@ -120,7 +120,7 @@
       "scope": [
         "bgm",
         "PROVIDENCE-CORE",
-        "game",
+        "musicselect",
         "all"
       ]
     }

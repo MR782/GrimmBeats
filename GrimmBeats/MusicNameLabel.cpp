@@ -1,18 +1,23 @@
 #include "MusicNameLabel.h"
 #include"MusicDataManager.h"
-#include"MusicSelectScene.h"
+#include"SceneManager.h"
 #include"ScreenSystem.h"
+
+MusicNameLabel::MusicNameLabel()
+{
+	this->_text = nullptr;
+}
 
 void MusicNameLabel::Initialize()
 {
-	this->text = new Text();
-	this->text->SetFont("%s", Point(ScreenData::width / 30, ScreenData::height / 20), CreateMyFont((ScreenData::height / 10), 32, false), SetColor(Color::Black));
+	this->_text = new Text();
+	this->_text->SetFont("%s", Point(ScreenData::width / 30, ScreenData::height / 20), CreateMyFont((ScreenData::height / 10), 32, false), SetColor(Color::Black));
 }
 
 void MusicNameLabel::Finalize()
 {
-	this->text->DeleteFont();
-	delete this->text;
+	this->_text->DeleteFont();
+	delete this->_text;
 }
 
 void MusicNameLabel::Update()
@@ -21,5 +26,5 @@ void MusicNameLabel::Update()
 
 void MusicNameLabel::Draw()
 {
-	this->text->DrawFormatFont(MusicDataManager::GetInfo(MusicName::musicName).name.c_str());
+	this->_text->DrawFormatFont(MusicDataManager::GetInfo(SelectMusic::Name).name.c_str());
 }
