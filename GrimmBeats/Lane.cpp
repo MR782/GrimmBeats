@@ -10,12 +10,13 @@ Lane::~Lane()
 void Lane::Initialize()
 {
 	const int laneXsize = 64;
+	const int spaceLaneXsize = 128;
 	#pragma region レーンごとの矩形を用意
-	this->_lane[LaneName::DLane] = Rect(ScreenData::width / 2 - laneXsize / 2 - laneXsize * 2, 0, laneXsize, ScreenData::height);
-	this->_lane[LaneName::FLane] = Rect(ScreenData::width / 2 - laneXsize / 2 - laneXsize, 0, laneXsize, ScreenData::height);
-	this->_lane[LaneName::SPACELane] = Rect(ScreenData::width / 2 - laneXsize / 2,0,laneXsize,ScreenData::height);
-	this->_lane[LaneName::JLane] = Rect(ScreenData::width / 2 + laneXsize / 2, 0, laneXsize, ScreenData::height);
-	this->_lane[LaneName::KLane] = Rect(ScreenData::width / 2 + laneXsize / 2 + laneXsize, 0, laneXsize, ScreenData::height);
+	this->_lane[LaneName::DLane] = Rect(ScreenData::width / 2 - laneXsize - laneXsize * 2, 0, laneXsize, ScreenData::height);
+	this->_lane[LaneName::FLane] = Rect(ScreenData::width / 2 - laneXsize - laneXsize, 0, laneXsize, ScreenData::height);
+	this->_lane[LaneName::SPACELane] = Rect(ScreenData::width / 2 - spaceLaneXsize / 2,0,spaceLaneXsize,ScreenData::height);
+	this->_lane[LaneName::JLane] = Rect(ScreenData::width / 2 + laneXsize, 0, laneXsize, ScreenData::height);
+	this->_lane[LaneName::KLane] = Rect(ScreenData::width / 2 + laneXsize + laneXsize, 0, laneXsize, ScreenData::height);
 	#pragma endregion
 
 	#pragma region レーンごとの対応キーをセット

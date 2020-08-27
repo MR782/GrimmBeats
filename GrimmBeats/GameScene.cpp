@@ -4,16 +4,24 @@
 #include"MemoryFunc.h"
 
 float Counter::_gameCnt;
+
 Lane* Object::lane;
+JudgeLine* Object::judgeLine;
 
 void GameScene::Initialize()
 {
 	#pragma region オブジェクトの初期化
 	Object::lane = new Lane();
+	Object::judgeLine = new JudgeLine();
+	this->_judgeButoon = new JudgeButton();
 
 	MemoryFunction::CheckMem(Object::lane);
+	MemoryFunction::CheckMem(Object::judgeLine);
+	MemoryFunction::CheckMem(this->_judgeButoon);
 
 	Object::lane->Initialize();
+	Object::judgeLine->Initialize();
+	this->_judgeButoon->Initialize();
 	#pragma endregion
 
 	#pragma region 値の初期化
@@ -29,12 +37,17 @@ void GameScene::Initialize()
 void GameScene::Finalize()
 {
 	Object::lane->Finalize();
+	Object::judgeLine->Finalize();
+	this->_judgeButoon->Finalize();
 
 	delete Object::lane;
+	delete Object::judgeLine;
+	delete this->_judgeButoon;
 }
 
 void GameScene::Update()
 {
+	this->_judgeButoon->Update();
 }
 
 void GameScene::Draw()
@@ -42,4 +55,7 @@ void GameScene::Draw()
 	this->DrawMoveBG();
 
 	Object::lane->Draw();
+	Object::judgeLine->Draw();
+
+	this->_judgeButoon->Draw();
 }

@@ -162,6 +162,7 @@
     <ClCompile Include="GraphicResource.cpp" />
     <ClCompile Include="json11.cpp" />
     <ClCompile Include="JsonHelper.cpp" />
+    <ClCompile Include="JudgeButton.cpp" />
     <ClCompile Include="JudgeLine.cpp" />
     <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="Lane.cpp" />
@@ -203,6 +204,7 @@
     <ClInclude Include="GraphicResource.h" />
     <ClInclude Include="json11.hpp" />
     <ClInclude Include="JsonHelper.h" />
+    <ClInclude Include="JudgeButton.h" />
     <ClInclude Include="JudgeLine.h" />
     <ClInclude Include="KeyBoard.h" />
     <ClInclude Include="Lane.h" />
