@@ -154,6 +154,8 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="BasicUI.cpp" />
+    <ClCompile Include="BPMLabel.cpp" />
+    <ClCompile Include="ComposerLabel.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePlayButton.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -170,7 +172,11 @@
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="MovieResource.cpp" />
     <ClCompile Include="MusicDataManager.cpp" />
+    <ClCompile Include="MusicListItemButton.cpp" />
+    <ClCompile Include="MusicNameLabel.cpp" />
     <ClCompile Include="MusicPlayerButton.cpp" />
+    <ClCompile Include="MusicSelectCursor.cpp" />
+    <ClCompile Include="MusicSelectScene.cpp" />
     <ClCompile Include="Necessary.cpp" />
     <ClCompile Include="Purpose.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -178,6 +184,7 @@
     <ClCompile Include="ScreenFunction.cpp" />
     <ClCompile Include="ScreenHelperGraph.cpp" />
     <ClCompile Include="ScreenSystem.cpp" />
+    <ClCompile Include="SpeedLabel.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="TitleGuide.cpp" />
     <ClCompile Include="TitleLogo.cpp" />
@@ -187,6 +194,8 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BasicUI.h" />
+    <ClInclude Include="BPMLabel.h" />
+    <ClInclude Include="ComposerLabel.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePlayButton.h" />
     <ClInclude Include="GameScene.h" />
@@ -203,7 +212,10 @@
     <ClInclude Include="Movie.h" />
     <ClInclude Include="MovieResource.h" />
     <ClInclude Include="MusicDataManager.h" />
+    <ClInclude Include="MusicListItemButton.h" />
+    <ClInclude Include="MusicNameLabel.h" />
     <ClInclude Include="MusicPlayerButton.h" />
+    <ClInclude Include="MusicSelectCursor.h" />
     <ClInclude Include="MusicSelectScene.h" />
     <ClInclude Include="Necessary.h" />
     <ClInclude Include="Purpose.h" />
@@ -212,6 +224,7 @@
     <ClInclude Include="ScreenFunction.h" />
     <ClInclude Include="ScreenHelperGraph.h" />
     <ClInclude Include="ScreenSystem.h" />
+    <ClInclude Include="SpeedLabel.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="TitleGuide.h" />
     <ClInclude Include="TitleLogo.h" />

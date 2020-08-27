@@ -23,22 +23,15 @@ void ModeSelectCursor::Update()
 {
 	const int SceneNum = 2;
 	#pragma region ƒJ[ƒ\ƒ‹‘€ì
-	if (KeyBoard::KeyDown(KEY_INPUT_UP)) {
-		this->_nextScene = (NextScene)(((int)this->_nextScene + 1) % SceneNum);
-		Audio::Play("cursor_ModeSelect");
-	}
-	else if (KeyBoard::KeyDown(KEY_INPUT_DOWN)) {
-		this->_nextScene = (NextScene)(((int)this->_nextScene + (SceneNum - 1) % SceneNum));
-		Audio::Play("cursor_ModeSelect");
-	}
+	CursorMove(KEY_INPUT_UP, (NextScene)(((int)this->_nextScene + 1) % SceneNum));
+	CursorMove(KEY_INPUT_DOWN, (NextScene)(((int)this->_nextScene + (SceneNum - 1)) % SceneNum));
 	this->SetPosition();
 	#pragma endregion
 }
 
 void ModeSelectCursor::Draw()
 {
-	Rect draw = Rect();
-	this->_anim->ExtendAnimeDraw(this->_draw);
+	this->_anim->BlinkExtendDraw(200,240,this->_draw);
 }
 
 ModeSelectCursor::NextScene ModeSelectCursor::GetNextScene()
@@ -56,5 +49,13 @@ void ModeSelectCursor::SetPosition()
 	case ModeSelectCursor::NextScene::MusicPlayer:
 		this->_draw = ModeSelectUI::musicplay_button->GetDrawRect();
 		break;
+	}
+}
+
+void ModeSelectCursor::CursorMove(int key, NextScene next)
+{
+	if (KeyBoard::KeyDown(key)) {
+		this->_nextScene = next;
+		Audio::Play("cursor_ModeSelect");
 	}
 }

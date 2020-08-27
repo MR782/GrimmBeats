@@ -17,6 +17,22 @@
       ]
     },
     {
+      "name": "PROVIDENCE-COREBack",
+      "path": "./data/graph/game/PROVIDENCE-CORE.png",
+      "width": 8192,
+      "height": 4096,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "back",
+        "all"
+      ]
+    },
+    {
       "name": "TitleBack",
       "path": "./data/graph/title/titleBack.png",
       "width": 1280,
@@ -108,6 +124,102 @@
       "sheets": 1,
       "scope": [
         "modeselect",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "ListItem_Air",
+      "path": "./data/graph/music_select/Air.png",
+      "width": 200,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "musicselect",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "ListItem_PROVIDENCE-CORE",
+      "path": "./data/graph/music_select/PROVIDENCE-CORE.png",
+      "width": 350,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "musicselect",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "MusicSelectCursor",
+      "path": "./data/graph/music_select/cursor.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "musicselect",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "MusicSelectBack",
+      "path": "./data/graph/music_select/background.png",
+      "width": 1280,
+      "height": 1920,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "musicselect",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "TxtBox",
+      "path": "./data/graph/music_select/Textbox.png",
+      "width": 93,
+      "height": 86,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "musicselect",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "UIBoard",
+      "path": "./data/graph/music_select/UIBoard.png",
+      "width": 1920,
+      "height": 1080,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "musicselect",
         "ui",
         "all"
       ]

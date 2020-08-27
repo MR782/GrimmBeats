@@ -119,6 +119,18 @@
     <Filter Include="ソース ファイル\GameObject\UI\ModeSelectUI\Item">
       <UniqueIdentifier>{77ae6556-8c43-44d5-bd0a-9c6f10120937}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\MusicSelectUI">
+      <UniqueIdentifier>{b9f98365-1535-478d-93fb-a68b0ad0d4e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\MusicSelectUI\Cursor">
+      <UniqueIdentifier>{392f4c99-58e7-4480-8142-8e33e6e10ff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\MusicSelectUI\Label">
+      <UniqueIdentifier>{52766500-fdc6-4328-b3a7-f51e14010a90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\MusicSelectUI\MusicListItem">
+      <UniqueIdentifier>{472c1c62-48f1-4f38-ad4e-75cdec220c1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -213,6 +225,27 @@
     </ClCompile>
     <ClCompile Include="GamePlayButton.cpp">
       <Filter>ソース ファイル\GameObject\UI\ModeSelectUI\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSelectScene.cpp">
+      <Filter>ソース ファイル\Scene\MusicSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="BPMLabel.cpp">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="ComposerLabel.cpp">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSelectCursor.cpp">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Cursor</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicNameLabel.cpp">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicListItemButton.cpp">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\MusicListItem</Filter>
+    </ClCompile>
+    <ClCompile Include="SpeedLabel.cpp">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -311,6 +344,24 @@
     </ClInclude>
     <ClInclude Include="MusicSelectScene.h">
       <Filter>ソース ファイル\Scene\MusicSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="BPMLabel.h">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
+    </ClInclude>
+    <ClInclude Include="ComposerLabel.h">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicSelectCursor.h">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Cursor</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicNameLabel.h">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicListItemButton.h">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\MusicListItem</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedLabel.h">
+      <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

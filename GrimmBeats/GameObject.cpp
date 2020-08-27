@@ -13,3 +13,8 @@ void GameObject::Draw()
 	if (this->_anim == nullptr) return;
 	this->_anim->DrawAnime(this->_position);
 }
+
+Vector2 GameObject::GetPosition()
+{
+	return this->_position;
+}

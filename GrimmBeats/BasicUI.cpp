@@ -3,7 +3,7 @@
 #include"Necessary.h"
 #include"./dxlib/DxLib.h"
 
-int CreateFont(int size, int thick, bool is_anti_alias)
+int CreateMyFont(int size, int thick, bool is_anti_alias)
 {
 	int handle;
 	//アンチエイリアスを使用するなら
@@ -66,10 +66,10 @@ Text::Text()
 void Text::SetFont(const char* str, Point pos, int font, int color)
 {
 	this->str = str;
+	this->text_width = (int)strlen(this->str);
 	this->pos = pos;
 	this->font = font;
 	this->color = color;
-	this->text_width = (int)strlen(this->str);
 }
 
 void Text::DeleteFont()

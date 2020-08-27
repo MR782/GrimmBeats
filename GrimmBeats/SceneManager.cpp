@@ -55,7 +55,7 @@ Scene* SceneManager::SetNextScene(SceneKind kind)
 	{
 	case SceneKind::Title:		return new TitleScene();
 	case SceneKind::ModeSelect: return new ModeSelectScene();
-	case SceneKind::MusicSelect:return new TitleScene();
+	case SceneKind::MusicSelect:return new MusicSelectScene();
 	case SceneKind::Game:		return new GameScene();
 	case SceneKind::Result:		return new TitleScene();
 	default: throw("—\Šú‚µ‚È‚¢ƒV[ƒ“‚ª‘ã“ü‚³‚ê‚Ä‚¢‚Ü‚·");

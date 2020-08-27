@@ -1,28 +1,41 @@
 {
   "music": [
     {
-      "name": "Air",
-      "composer": "SHIKI",
-      "genre": "TranceCore",
-      "bpm": 178,
-
+      "name": "PROVIDENCE-CORE",
+      "composer": "Tatsh",
+      "bpm": 180,
+      "musicName": "PROVIDENCE-CORE",
+      "demomusicName": "PROVIDENCE-CORE_DEMO",
+      "jacketName": "PROVIDENCE-CORE",
       "level": [
-        "normal",
-        "hard",
         "extream"
       ],
       "levelTxt": [
-        "N_Air",
-        "H_Air",
+        "E_PC"
+      ],
+
+      "scope": [
+        "PROVIDENCE-CORE",
+        "music",
+        "all"
+      ]
+    },
+    {
+      "name": "Air",
+      "composer": "SHIKI",
+      "bpm": 178,
+      "musicName": "Air",
+      "demomusicName": "Air_DEMO",
+      "jacketName": "AirBack",
+      "level": [
+        "extream"
+      ],
+      "levelTxt": [
         "E_Air"
       ],
 
-      "musicFilePath": "",
-      "demomusicFilePath": "",
-      "jacketFilePath": "",
-
       "scope": [
-        "air",
+        "Air",
         "music",
         "all"
       ]

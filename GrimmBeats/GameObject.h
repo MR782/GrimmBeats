@@ -12,4 +12,6 @@ public:
 	virtual void Finalize() = 0;
 	virtual void Update() = 0;
 	virtual void Draw();
+
+	Vector2 GetPosition();
 };

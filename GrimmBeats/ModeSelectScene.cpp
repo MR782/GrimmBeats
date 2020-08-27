@@ -63,10 +63,10 @@ void ModeSelectScene::Update()
 	switch (ModeSelectUI::cursol->GetNextScene())
 	{
 	case ModeSelectCursor::NextScene::MusicSelect:
-		sceneManager->ChangeScene(KeyBoard::KeyDown(KEY_INPUT_RETURN), SceneKind::Game);
+		sceneManager->ChangeScene(KeyBoard::KeyDown(KEY_INPUT_RETURN), SceneKind::MusicSelect);
 		break;
 	case ModeSelectCursor::NextScene::MusicPlayer:
-		sceneManager->ChangeScene(KeyBoard::KeyDown(KEY_INPUT_RETURN), SceneKind::MusicPlayer);
+		//sceneManager->ChangeScene(KeyBoard::KeyDown(KEY_INPUT_RETURN), SceneKind::MusicPlayer);
 		break;
 	default:
 		throw("Ÿ‚ÌƒV[ƒ“‚ªw’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");

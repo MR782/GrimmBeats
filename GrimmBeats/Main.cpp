@@ -3,16 +3,16 @@
 #include<stdlib.h>
 #include<crtdbg.h>
 #include<Windows.h>
-
 #include"SceneManager.h"
 #include"KeyBoard.h"
 #include"GraphicResource.h"
 #include"Audio.h"
 #include"MovieResource.h"
+#include"MusicDataManager.h"
 #include"Time.h"
 #include"ScreenSystem.h"
 #include"ScreenFunction.h"
-#include "./dxlib/DxLib.h"
+#include"./dxlib/DxLib.h"
 
 SceneManager* sceneManager;
 
@@ -66,7 +66,8 @@ int WINAPI WinMain(
 		GraphicResource::Initialize();
 		Audio::Initialize();
 		MovieResource::Initialize();
-		
+		MusicDataManager::Initialize();
+
 		GraphicResource::Load("all");
 		#pragma endregion
 
@@ -106,6 +107,7 @@ int WINAPI WinMain(
 	Audio::Finalize();
 	GraphicResource::Finalize();
 	MovieResource::Finalize();
+	MusicDataManager::Finalize();
 	#pragma endregion
 	delete sceneManager;
 
