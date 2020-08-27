@@ -1,6 +1,7 @@
 #include "MusicDataManager.h"
 #include"json11.hpp"
 #include"JsonHelper.h"
+#include <iostream>
 
 MusicData::MusicData()
 {
@@ -8,10 +9,8 @@ MusicData::MusicData()
 	this->bpm = 0;
 	this->composerName = "";
 	this->exist = false;
-	this->genre = "";
-	this->demomusicFileName = "";
-	this->jacketFileName = "";
-	this->musicFileName = "";
+	this->demomusicName = "";
+	this->musicName = "";
 	this->level.clear();
 	this->txtFile.clear();
 }
@@ -26,15 +25,13 @@ void MusicData::SetDefault()
 	if (this->name == "")			  this->name = "Default";
 	if (this->bpm == 0)				  this->bpm = 100;
 	if (this->composerName == "")	  this->composerName = "NoName";
-	if (this->genre == "")			  this->genre = "NoGenre";
-	if (this->demomusicFileName == "")this->demomusicFileName = "non";
-	if (this->jacketFileName == "")   this->jacketFileName = "Non";
-	if(this->musicFileName == "")	  this->musicFileName = "Non";
+	if (this->demomusicName == "")this->demomusicName = "non";
+	if(this->musicName == "")	  this->musicName = "Non";
 	if (this->level.empty() && this->txtFile.empty()) {
-		this->level.push_back(Level::easy);
+		this->level.push_back(Level::extream);
 		this->level.push_back(Level::normal);
 		this->level.push_back(Level::hard);
-		this->txtFile[Level::easy] = "";
+		this->txtFile[Level::extream] = "";
 		this->txtFile[Level::normal] = "";
 		this->txtFile[Level::hard] = "";
 	}
@@ -46,7 +43,7 @@ void MusicData::SetDefault()
 
 std::vector<MusicData> MusicDataManager::musicinfoList;
 
-void MusicDataManager::register_audio(MusicData& data)
+void MusicDataManager::RegisterData(MusicData& data)
 {
 	//まだ読み込んでいないなら
 	if (data.exist == false) {
@@ -55,26 +52,61 @@ void MusicDataManager::register_audio(MusicData& data)
 	}
 }
 
+Level MusicDataManager::ParseEnum(std::string txt)
+{
+	if (txt == "normal") return Level::normal;
+	else if (txt == "hard") return Level::hard;
+	else if (txt == "extream") return Level::extream;
+	throw("引数に異常な値が入っています。MusicDataManager : Line.62");
+	return Level::normal;
+}
+
 void MusicDataManager::Initialize()
 {
 	json11::Json json = JsonHelper::JsonInitialize("./data/json/musicData.json");
 	//-------------------------------------------------------------
 	for (auto& item : json["music"].array_items()) {//ファイル内のデータ分繰り返す
 		MusicData musicdata;
-		musicdata.exist = true;//まだ読み込んでいない
 		musicdata.name = item["name"].string_value();//識別子
-
+		musicdata.bpm = item["bpm"].int_value();
+		musicdata.composerName = item["composer"].string_value();
+		musicdata.musicName = item["musicName"].string_value();
+		musicdata.demomusicName = item["demomusicName"].string_value();
+		for (auto& levelitem : item["level"].array_items()) {
+			Level level = MusicDataManager::ParseEnum(levelitem.string_value());
+			musicdata.level.push_back(level);
+		}
+		for (auto& leveltxt : item["levelTxt"].array_items()) {
+			for (auto itr = musicdata.level.begin(); itr != musicdata.level.end(); itr++) {
+				if (*itr == Level::extream) {
+					if (leveltxt.string_value().find("E") != std::string::npos) {
+						musicdata.txtFile[*itr] = leveltxt.string_value();
+					}
+				}
+				if (*itr == Level::hard) {
+					if (leveltxt.string_value().find("H") != std::string::npos) {
+						musicdata.txtFile[*itr] = leveltxt.string_value();
+					}
+				}
+				if (*itr == Level::normal) {
+					if (leveltxt.string_value().find("N") != std::string::npos) {
+						musicdata.txtFile[*itr] = leveltxt.string_value();
+					}
+				}
+			}
+		}
 		for (auto& scope : item["scope"].array_items()) {//読み込む際の識別子
 			musicdata.scopes.push_back(scope.string_value());
 		}
 		musicdata.SetDefault();//値が入っていない場合デフォルト値をセット
 
-		musicinfoList.push_back(musicdata);
+		RegisterData(musicdata);
 	}
 }
 
 void MusicDataManager::Finalize()
 {
+	musicinfoList.clear();
 }
 
 //----------------------------------------------------------------

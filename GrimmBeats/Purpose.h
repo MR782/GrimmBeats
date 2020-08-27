@@ -90,4 +90,12 @@ public:
 	int y;
 	int w;
 	int h;
+
+	Rect operator-=(int width) {
+		this->x -= width;
+		this->y -= width;
+		this->w += width * 2;
+		this->h += width * 2;
+		return *this;
+	}
 };

@@ -154,6 +154,9 @@ bool Audio::CheckPlay(std::string name)
 				check = true;
 				break;
 			}
+			else if (CheckSoundMem((*itr)->handle) == 0) {
+				check = true;
+			}
 		}
 	}
 	return check;

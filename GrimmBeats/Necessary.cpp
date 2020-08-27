@@ -10,7 +10,7 @@
 bool Necessary::fade_ioFlag;//フェードを管理するフラグ
 int Necessary::speed;//ノーツの落ちる速度
 
-MusicList Necessary::m_list;//楽曲
+std::map<MusicList, std::string> Necessary::musicListItem;
 
 void Necessary::Initialize()
 {
@@ -18,13 +18,34 @@ void Necessary::Initialize()
 	fade_ioFlag = false;
 }
 
+void Necessary::DeleteMusicListItem()
+{
+	musicListItem.clear();
+}
+
 void Necessary::SetFadeIOFlag(bool flag)
 {
 	fade_ioFlag = flag;
+}
+
+void Necessary::AddMusicListItem(MusicList list, std::string name)
+{
+	musicListItem[list] = name;
 }
 
 bool Necessary::GetFadeIOFlag()
 {
 	return fade_ioFlag;
 }
+
+std::string Necessary::GetMusicListItem(MusicList list)
+{
+	return musicListItem[list];
+}
+
+std::map<MusicList, std::string> Necessary::GetMusicList()
+{
+	return musicListItem;
+}
+
 

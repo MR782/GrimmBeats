@@ -11,6 +11,7 @@ private:
 	NextScene _nextScene;
 	Rect _draw;
 	void SetPosition();
+	void CursorMove(int,NextScene);
 public:
 	void Initialize()override;
 	void Finalize()override;

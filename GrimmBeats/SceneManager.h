@@ -2,6 +2,7 @@
 #include"TitleScene.h"
 #include"GameScene.h"
 #include"ModeSelectScene.h"
+#include"MusicSelectScene.h"
 #include"Movie.h"
 
 class SceneManager {

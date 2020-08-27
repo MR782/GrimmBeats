@@ -79,6 +79,50 @@
         "modeselect",
         "all"
       ]
+    },
+    {
+      "name": "Air",
+      "loop": false,
+      "path": "./data/BGM_SE/BGM/music/Air.wav",
+      "scope": [
+        "bgm",
+        "air",
+        "game",
+        "all"
+      ]
+    },
+    {
+      "name": "Air_DEMO",
+      "loop": true,
+      "path": "./data/BGM_SE/BGM/demo/AirDEMO.wav",
+      "scope": [
+        "bgm",
+        "air",
+        "game",
+        "all"
+      ]
+    },
+    {
+      "name": "PROVIDENCE-CORE",
+      "loop": false,
+      "path": "./data/BGM_SE/BGM/music/PROVIDENCE-CORE.wav",
+      "scope": [
+        "bgm",
+        "PROVIDENCE-CORE",
+        "game",
+        "all"
+      ]
+    },
+    {
+      "name": "PROVIDENCE-CORE_DEMO",
+      "loop": true,
+      "path": "./data/BGM_SE/BGM/demo/PROVIDENCE-CORE_DEMO.wav",
+      "scope": [
+        "bgm",
+        "PROVIDENCE-CORE",
+        "game",
+        "all"
+      ]
     }
   ]
 }

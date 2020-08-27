@@ -35,7 +35,7 @@ struct Text {
 	void SetPosition(Point pos);
 };
 
-int CreateFont(int size,int thick,bool is_anti_alias);
+int CreateMyFont(int size,int thick,bool is_anti_alias);
 
 int SetColor(Color color);
 
