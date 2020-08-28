@@ -24,6 +24,8 @@ void SpeedLabel::Initialize()
 
 void SpeedLabel::Finalize()
 {
+	this->_text->DeleteFont();
+	delete this->_text;
 }
 
 void SpeedLabel::Update()

@@ -16,8 +16,6 @@
 
 SceneManager* sceneManager;
 
-#include <crtdbg.h>
-
 // WinMainŠÖ”
 int WINAPI WinMain(
 	_In_ HINSTANCE hInstance, _In_opt_  HINSTANCE hPrevInstance,
@@ -67,8 +65,6 @@ int WINAPI WinMain(
 		Audio::Initialize();
 		MovieResource::Initialize();
 		MusicDataManager::Initialize();
-
-		GraphicResource::Load("all");
 		#pragma endregion
 
 		sceneManager->Initialize();

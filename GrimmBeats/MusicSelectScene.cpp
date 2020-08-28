@@ -24,8 +24,7 @@ MusicSelectScene::MusicSelectScene()
 void MusicSelectScene::Initialize()
 {
 	Audio::Load("musicselect");
-	Audio::SetVolumeAudioName("Air_DEMO", 75);
-	Audio::SetVolumeAudioName("PROVIDENCE-CORE_DEMO", 75);
+	GraphicResource::Load("musicselect");
 
 	#pragma region UIオブジェクトの生成と初期化
 	this->_bpmLabel = new BPMLabel();
@@ -65,6 +64,8 @@ void MusicSelectScene::Initialize()
 
 void MusicSelectScene::Finalize()
 {
+	this->_uiBoard.reset();
+
 	this->_composerLabel->Finalize();
 	this->_bpmLabel->Finalize();
 	this->_musicNameLabel->Finalize();
@@ -77,9 +78,10 @@ void MusicSelectScene::Finalize()
 	delete this->_composerLabel;
 	delete this->_bpmLabel;
 	delete this->_cursor;
+	delete this->_speedLabel;
 
 	Audio::DeleteSoundDataScope("musicselect");
-	Audio::StopAll();
+	GraphicResource::DeleteGraphScope("musicselect");
 }
 
 void MusicSelectScene::Update()

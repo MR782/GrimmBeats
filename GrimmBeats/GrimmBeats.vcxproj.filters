@@ -137,6 +137,15 @@
     <Filter Include="ソース ファイル\GameObject\UI\GameUI">
       <UniqueIdentifier>{a160389a-cd08-4dd7-b1e4-8e3d3835c759}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\GameUI\Label">
+      <UniqueIdentifier>{90d50ebd-8772-4212-8e36-095aac8d5f8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\GameUI\ClearGauge">
+      <UniqueIdentifier>{be7a30a7-b7ea-487b-a09a-2b4d1d2f3b6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Notes\Tap">
+      <UniqueIdentifier>{2e7c38c1-ded5-447e-be42-ee3af7b03e97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -253,11 +262,26 @@
     <ClCompile Include="SpeedLabel.cpp">
       <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
     </ClCompile>
-    <ClCompile Include="Notes.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="JudgeButton.cpp">
       <Filter>ソース ファイル\GameObject\UI\GameUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Notes.cpp">
+      <Filter>ソース ファイル\GameObject\Notes</Filter>
+    </ClCompile>
+    <ClCompile Include="JudgeResultLabel.cpp">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreLabel.cpp">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearGauge.cpp">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\ClearGauge</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearGaugeFream.cpp">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\ClearGauge</Filter>
+    </ClCompile>
+    <ClCompile Include="TapNotes.cpp">
+      <Filter>ソース ファイル\GameObject\Notes\Tap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -380,6 +404,21 @@
     </ClInclude>
     <ClInclude Include="JudgeButton.h">
       <Filter>ソース ファイル\GameObject\UI\GameUI</Filter>
+    </ClInclude>
+    <ClInclude Include="JudgeResultLabel.h">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\Label</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreLabel.h">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\Label</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearGauge.h">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\ClearGauge</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearGaugeFream.h">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\ClearGauge</Filter>
+    </ClInclude>
+    <ClInclude Include="TapNotes.h">
+      <Filter>ソース ファイル\GameObject\Notes\Tap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

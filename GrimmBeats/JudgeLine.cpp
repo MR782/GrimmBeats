@@ -21,7 +21,7 @@ void JudgeLine::Update()
 
 void JudgeLine::Draw()
 {
-	const int judgeLineHeight = 16;
+	const int judgeLineHeight = 8;
 	DrawBox((int)this->_position.x, (int)this->_position.y,
 		Object::lane->GetRect(LaneName::KLane).x + Object::lane->GetRect(LaneName::KLane).w,
 		(int)this->_position.y + judgeLineHeight, SetColor(Color::Red), TRUE);

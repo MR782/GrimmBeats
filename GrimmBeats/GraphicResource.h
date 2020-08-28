@@ -31,6 +31,7 @@ public:
 	static std::shared_ptr<GraphicObject> Get(std::string name);//引数のnameを持つオブジェクトポインタを返す
 	static void Finalize();//使い終わったデータを全削除
 	static int* GetHandle(std::string name_);//ハンドルのみ受け取らせる(Animationクラスを使用しない描画で使用)
+	static void DeleteGraphScope(std::string scope);//指定したスコープの画像をメモリから消す
 private:
 	static void DeleteAll();//全ての画像をメモリから解放する
 	static bool ExistName(std::string);		//名前が存在しているか調べる

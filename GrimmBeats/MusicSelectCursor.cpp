@@ -19,6 +19,7 @@ void MusicSelectCursor::Initialize()
 void MusicSelectCursor::Finalize()
 {
 	this->_anim.reset();
+	this->_musiclist.clear();
 	Necessary::DeleteMusicListItem();
 }
 
