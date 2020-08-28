@@ -4,6 +4,7 @@
 #include"ScreenFunction.h"
 #include"KeyBoard.h"
 #include"SceneManager.h"
+#include"GraphicResource.h"
 #include"./dxlib/DxLib.h"
 
 ModeSelectCursor* ModeSelectUI::cursol;
@@ -15,6 +16,7 @@ void ModeSelectScene::Initialize()
 	//リソースのロード
 	Audio::Load("modeselect");
 	Audio::Play("ModeSelectBGM", true);
+	GraphicResource::Load("modeselect");
 
 	#pragma region 値の初期化
 	this->_bgPosition.clear();
@@ -41,6 +43,7 @@ void ModeSelectScene::Finalize()
 
 	Audio::Stop("ModeSelectBGM");
 	Audio::DeleteSoundDataScope("modeselect");
+	GraphicResource::DeleteGraphScope("modeselect");
 
 	ModeSelectUI::cursol->Finalize();
 	ModeSelectUI::gameplay_button->Finalize();

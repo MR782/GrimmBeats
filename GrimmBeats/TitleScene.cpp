@@ -20,6 +20,7 @@ void TitleScene::Initialize()
 	MovieResource::Load("title");
 	Audio::Load("title");
 	Audio::Play("TitleBGM", true);
+	GraphicResource::Load("title");
 	//‰Šú‰»
 	#pragma region ”wŒi‚Ì‰Šú‰»
 	this->_move_background = false;
@@ -48,9 +49,10 @@ void TitleScene::Initialize()
 
 void TitleScene::Finalize()
 {
+	GraphicResource::DeleteGraphScope("title");
+	Audio::DeleteSoundDataScope("title");
 	this->_movie->Delete();
 	this->_movie.reset();
-	Audio::DeleteSoundDataScope("title");
 	this->_titleGuide->Finalize();
 	this->_titleLogo->Finalize();
 

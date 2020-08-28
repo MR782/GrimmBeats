@@ -1,6 +1,8 @@
 #include "Lane.h"
 #include"ScreenSystem.h"
 #include"BasicUI.h"
+#include"KeyBoard.h"
+#include"GameScene.h"
 #include"./dxlib/DxLib.h"
 
 Lane::~Lane()
@@ -9,8 +11,8 @@ Lane::~Lane()
 
 void Lane::Initialize()
 {
-	const int laneXsize = 64;
-	const int spaceLaneXsize = 128;
+	const int laneXsize = (ScreenData::width / 14);
+	const int spaceLaneXsize = laneXsize * 2;
 	#pragma region レーンごとの矩形を用意
 	this->_lane[LaneName::DLane] = Rect(ScreenData::width / 2 - laneXsize - laneXsize * 2, 0, laneXsize, ScreenData::height);
 	this->_lane[LaneName::FLane] = Rect(ScreenData::width / 2 - laneXsize - laneXsize, 0, laneXsize, ScreenData::height);
@@ -46,8 +48,9 @@ void Lane::Draw()
 		//Map内からLaneNameを取り出してそれに位置するRectを取り出して代入
 		Rect rect = (*this->_lane.find(LaneName((*itr).first))).second;
 		DrawBox(rect.x, rect.y, rect.x + rect.w, rect.y + rect.h, SetColor(Color::Black),TRUE);
+		DrawWhiteLane((*itr).first);
 		DrawLine(rect.x, rect.y, rect.x, rect.y + rect.h, SetColor(Color::White));
-		DrawLine(rect.x+ rect.w, rect.y, rect.x + rect.w, rect.y + rect.h, SetColor(Color::White));
+		DrawLine(rect.x + rect.w, rect.y, rect.x + rect.w, rect.y + rect.h, SetColor(Color::White));
 	}
 }
 
@@ -59,12 +62,21 @@ Rect Lane::GetRect(LaneName lane)
 	throw("指定された矩形が見つかりませんでした(Lane::GetRect())");
 }
 
-std::map<LaneName,int> Lane::GetKeyCode()
-{
-	return this->_keycode;
-}
-
 int Lane::GetKeyCode(LaneName lane)
 {
 	return this->_keycode[lane];
+}
+
+bool Lane::IsPressed(LaneName lane)
+{
+	return KeyBoard::KeyPress(this->_keycode[lane]);
+}
+
+void Lane::DrawWhiteLane(LaneName lane)
+{
+	if (IsPressed(lane)) {
+		DrawBox(this->_lane[lane].x, this->_lane[lane].y + ScreenData::height / 6,
+			this->_lane[lane].x + this->_lane[lane].w, this->_lane[lane].y + (int)Object::judgeLine->GetPosition().y,
+			SetColor(Color::Gray), TRUE);
+	}
 }

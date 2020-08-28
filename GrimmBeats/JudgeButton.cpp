@@ -27,11 +27,11 @@ void JudgeButton::Update()
 
 void JudgeButton::Draw()
 {
-	const int judgeLineHeight = 16;
+	const int judgeLineHeight = 8;
 	for (auto itr = this->_buttons.begin(); itr != this->_buttons.end(); itr++) {
 		Rect laneRect = (*itr).drawRect;
-		(*itr).anime->ExtendAnimeDraw(Rect((float)laneRect.x, laneRect.y + laneRect.h - Object::judgeLine->GetPosition().y + judgeLineHeight,
-			(float)laneRect.w, ScreenData::height - laneRect.y + laneRect.h - Object::judgeLine->GetPosition().y + judgeLineHeight));
+		(*itr).anime->ExtendAnimeDraw(Rect((float)laneRect.x, Object::judgeLine->GetPosition().y + judgeLineHeight,
+			(float)laneRect.w, ScreenData::height - (Object::judgeLine->GetPosition().y + judgeLineHeight)));
 	}
 }
 

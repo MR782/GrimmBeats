@@ -236,6 +236,263 @@
       "sheets": 1,
       "scope": [
         "musicselect",
+        "uiboard",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "DPush",
+      "path": "./data/graph/game/D_push.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "DNotPush",
+      "path": "./data/graph/game/D_notpush.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "FPush",
+      "path": "./data/graph/game/F_push.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "FNotPush",
+      "path": "./data/graph/game/F_notpush.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "JPush",
+      "path": "./data/graph/game/J_push.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "JNotPush",
+      "path": "./data/graph/game/J_notpush.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "KPush",
+      "path": "./data/graph/game/K_push.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "KNotPush",
+      "path": "./data/graph/game/K_notpush.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "SpacePush",
+      "path": "./data/graph/game/Space_push.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "SpaceNotPush",
+      "path": "./data/graph/game/Space_notpush.png",
+      "width": 100,
+      "height": 100,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "ClearGauge",
+      "path": "./data/graph/game/cleargauge.png",
+      "width": 100,
+      "height": 300,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "ClearGaugeFream",
+      "path": "./data/graph/game/cleargaugeFream.png",
+      "width": 200,
+      "height": 300,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "Book(Null)",
+      "path": "./data/graph/game/book(null).png",
+      "width": 1000,
+      "height": 1000,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "Book(Blue)",
+      "path": "./data/graph/game/book(blue).png",
+      "width": 1000,
+      "height": 1000,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "Book(Red)",
+      "path": "./data/graph/game/book(red).png",
+      "width": 1000,
+      "height": 1000,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "TapNotes",
+      "path": "./data/graph/game/tapnotes.png",
+      "width": 100,
+      "height": 30,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
         "ui",
         "all"
       ]

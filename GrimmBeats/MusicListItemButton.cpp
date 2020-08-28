@@ -17,6 +17,7 @@ void MusicListItemButton::Initialize()
 
 void MusicListItemButton::Finalize()
 {
+	this->_items.clear();
 }
 
 void MusicListItemButton::Update()
