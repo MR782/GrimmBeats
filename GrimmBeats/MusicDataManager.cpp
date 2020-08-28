@@ -28,10 +28,8 @@ void MusicData::SetDefault()
 	if (this->demomusicName == "")this->demomusicName = "non";
 	if(this->musicName == "")	  this->musicName = "Non";
 	if (this->level.empty() && this->txtFile.empty()) {
-		this->level.push_back(Level::extream);
 		this->level.push_back(Level::normal);
 		this->level.push_back(Level::hard);
-		this->txtFile[Level::extream] = "";
 		this->txtFile[Level::normal] = "";
 		this->txtFile[Level::hard] = "";
 	}
@@ -56,7 +54,6 @@ Level MusicDataManager::ParseEnum(std::string txt)
 {
 	if (txt == "normal") return Level::normal;
 	else if (txt == "hard") return Level::hard;
-	else if (txt == "extream") return Level::extream;
 	throw("ˆø”‚ÉˆÙí‚È’l‚ª“ü‚Á‚Ä‚¢‚Ü‚·BMusicDataManager : Line.62");
 	return Level::normal;
 }
@@ -78,11 +75,6 @@ void MusicDataManager::Initialize()
 		}
 		for (auto& leveltxt : item["levelTxt"].array_items()) {
 			for (auto itr = musicdata.level.begin(); itr != musicdata.level.end(); itr++) {
-				if (*itr == Level::extream) {
-					if (leveltxt.string_value().find("E") != std::string::npos) {
-						musicdata.txtFile[*itr] = leveltxt.string_value();
-					}
-				}
 				if (*itr == Level::hard) {
 					if (leveltxt.string_value().find("H") != std::string::npos) {
 						musicdata.txtFile[*itr] = leveltxt.string_value();

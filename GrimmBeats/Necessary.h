@@ -10,8 +10,7 @@
 //難易度リスト
 enum class Level {
 	normal,
-	hard,
-	extream
+	hard
 };
 
 //楽曲リスト

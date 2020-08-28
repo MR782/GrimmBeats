@@ -42,7 +42,7 @@ JudgeButton::JudgeButtonItem::JudgeButtonItem(std::string push_, std::string not
 	this->pushGraphName = push_;
 	this->anime = std::make_unique<Animation>();
 	this->key = key_;
-	this->anime->Set("this->notPushGraphName");
+	this->anime->Set(this->notPushGraphName);
 }
 
 void JudgeButton::ButtonGraphChange(JudgeButtonItem& item)

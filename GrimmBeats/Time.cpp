@@ -4,6 +4,7 @@
 LARGE_INTEGER  Time::now_time;
 LARGE_INTEGER  Time::freq;
 int			   Time::freamtime;
+std::vector<Time::Timer> Time::timeArray;
 #pragma endregion
 
 void Time::Initialize()
@@ -11,10 +12,12 @@ void Time::Initialize()
 	freamtime = 0;
 	QueryPerformanceFrequency(&Time::freq);
 	QueryPerformanceCounter(&Time::now_time);
+	timeArray.clear();
 }
 
 void Time::Finalize()
 {
+	timeArray.clear();
 }
 
 void Time::Update()
@@ -40,6 +43,7 @@ LARGE_INTEGER Time::GetTimerNowTime(std::string name)
 	for (auto itr = timeArray.begin(); itr != timeArray.end(); itr++) {
 		if ((*itr).name == name) return (*itr).now_time;
 	}
+	throw("指定されたタイマーが見つかりません");
 }
 
 Time::Timer::Timer()

@@ -25,5 +25,5 @@ void ScoreLabel::Update()
 
 void ScoreLabel::Draw()
 {
-	this->_socreLabel->DrawFormatFont(100000);
+	this->_socreLabel->DrawFormatFont(Counter::_score);
 }

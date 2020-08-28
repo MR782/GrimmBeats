@@ -27,17 +27,16 @@ void ClearGauge::Finalize()
 {
 	this->_anim.reset();
 	this->_fream->Finalize();
-
+	
+	for (auto itr = this->_books.begin(); itr != this->_books.end(); itr++) {
+		delete (*itr);
+	}
+	this->_books.clear();
 	delete this->_fream;
 }
 
 void ClearGauge::Update()
 {
-	if (KeyBoard::KeyDown(KEY_INPUT_D)) IncreaseGaugeCnt(3);
-	if (KeyBoard::KeyDown(KEY_INPUT_F)) IncreaseGaugeCnt(10);
-
-	if (KeyBoard::KeyDown(KEY_INPUT_SPACE)) DecreaseGaugeCnt(20);
-
 	//本の更新(カウントによって色付きにするか決める)
 	for (auto itr = this->_books.begin(); itr != this->_books.end(); itr++) {
 		std::string name = "Book(Null)";

@@ -29,14 +29,10 @@ void JudgeResultLabel::Finalize()
 	this->_anim.reset();
 
 	#pragma region フォントの削除
-	this->_resultText[JudgeResult::Perfect]->DeleteFont();
-	this->_resultText[JudgeResult::Great]->DeleteFont();
-	this->_resultText[JudgeResult::Good]->DeleteFont();
-	this->_resultText[JudgeResult::Miss]->DeleteFont();
-	delete this->_resultText[JudgeResult::Perfect];
-	delete this->_resultText[JudgeResult::Great];
-	delete this->_resultText[JudgeResult::Good];
-	delete this->_resultText[JudgeResult::Miss];
+	for (auto itr = this->_resultText.begin(); itr != this->_resultText.end(); itr++) {
+		(*itr).second->DeleteFont();
+		delete (*itr).second;
+	}
 	this->_resultText.clear();
 	#pragma endregion
 }
@@ -64,17 +60,13 @@ int JudgeResultLabel::GetJudgeResultCnt(JudgeResult  result)
 	switch (result)
 	{
 	case JudgeResult::Perfect:
-		return 0;
-		break;
+		return Counter::_perfectCnt;
 	case JudgeResult::Great:
-		return 0;
-		break;
+		return Counter::_greatCnt;
 	case JudgeResult::Good:
-		return 0;
-		break;
+		return Counter::_goodCnt;
 	case JudgeResult::Miss:
-		return 0;
-		break;
+		return Counter::_missCnt;
 	}
 	throw("不明な値が入っている/ JudgeResultLabel::GetJudgeResultCnt");
 }

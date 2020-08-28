@@ -7,17 +7,10 @@
 #include"ClearGauge.h"
 #include"ScoreLabel.h"
 
-//‰¼
-#include"Notes.h"
-
 class GameScene : public Scene {
 	ScoreLabel* _scoreLabel;
-	JudgeButton* _judgeButoon;
+	JudgeButton* _judgeButton;
 	ClearGauge* _clearGauge;
-
-	//‰¼
-	Notes* _notes;
-	Notes* _notes2;
 public:
 	void Initialize()override;
 	void Finalize()override;
@@ -33,4 +26,9 @@ namespace Object {
 
 namespace Counter {
 	extern float _gameCnt;
+	extern int _perfectCnt;
+	extern int _greatCnt;
+	extern int _goodCnt;
+	extern int _missCnt;
+	extern int _score;
 }
