@@ -54,7 +54,7 @@ Level MusicDataManager::ParseEnum(std::string txt)
 {
 	if (txt == "normal") return Level::normal;
 	else if (txt == "hard") return Level::hard;
-	throw("引数に異常な値が入っています。MusicDataManager : Line.62");
+	throw("引数に異常な値が入っています。MusicDataManager : Line.57");
 	return Level::normal;
 }
 
@@ -78,11 +78,13 @@ void MusicDataManager::Initialize()
 				if (*itr == Level::hard) {
 					if (leveltxt.string_value().find("H") != std::string::npos) {
 						musicdata.txtFile[*itr] = leveltxt.string_value();
+						continue;
 					}
 				}
 				if (*itr == Level::normal) {
 					if (leveltxt.string_value().find("N") != std::string::npos) {
 						musicdata.txtFile[*itr] = leveltxt.string_value();
+						continue;
 					}
 				}
 			}

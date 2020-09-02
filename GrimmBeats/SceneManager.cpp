@@ -5,6 +5,7 @@
 #include"Audio.h"
 
 std::string SelectMusic::Name;
+Level SelectMusic::level;
 
 void SceneManager::Initialize()
 {

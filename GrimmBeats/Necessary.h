@@ -31,7 +31,8 @@ enum class JudgeResult{
 	Great,
 	Good,
 	Miss,
-	Non
+	Non,
+	HoldNow
 };
 
 class Necessary {

@@ -8,10 +8,10 @@
       "demomusicName": "PROVIDENCE-CORE_DEMO",
       "jacketName": "PROVIDENCE-CORE",
       "level": [
-        "extream"
+        "hard"
       ],
       "levelTxt": [
-        "E_PC"
+        "H_PC"
       ],
 
       "scope": [
@@ -28,10 +28,10 @@
       "demomusicName": "Air_DEMO",
       "jacketName": "AirBack",
       "level": [
-        "extream"
+        "hard"
       ],
       "levelTxt": [
-        "E_Air"
+        "H_Air"
       ],
 
       "scope": [

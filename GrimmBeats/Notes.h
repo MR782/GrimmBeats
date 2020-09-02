@@ -4,10 +4,10 @@
 #include"Lane.h"
 
 class Notes : public GameObject {
-	Rect _drawRect;
-
 	void Move();
+	float holdTime;
 protected:
+	Rect _drawRect;
 	LaneName _lane;
 	float _perfectTiming;
 public:
@@ -15,7 +15,8 @@ public:
 	void Finalize()final;
 	void Update()final;
 	void Draw()final;
+	LaneName GetLane();
 
 	virtual JudgeResult Judge() = 0;
-	virtual void SetInfo(float p_timing,LaneName lane);
+	virtual void SetInfo(float p_timing,LaneName lane,float holdtime);
 };

@@ -1,7 +1,10 @@
 #include "GameScene.h"
 #include"GraphicResource.h"
 #include"ScreenSystem.h"
+#include"Time.h"
+#include"NotesCreater.h"
 #include"MemoryFunc.h"
+#include"SceneManager.h"
 
 #pragma region カウンター
 float Counter::_gameCnt;
@@ -23,29 +26,6 @@ void GameScene::Initialize()
 	GraphicResource::Load("game");
 	GraphicResource::Load("uiboard");
 
-	#pragma region オブジェクトの初期化
-	Object::lane = new Lane();
-	Object::judgeLine = new JudgeLine();
-	Object::judgeResultLabel = new JudgeResultLabel();
-	this->_judgeButton = new JudgeButton();
-	this->_scoreLabel = new ScoreLabel();
-	this->_clearGauge = new ClearGauge();
-
-	MemoryFunction::CheckMem(Object::lane);
-	MemoryFunction::CheckMem(Object::judgeLine);
-	MemoryFunction::CheckMem(Object::judgeResultLabel);
-	MemoryFunction::CheckMem(this->_judgeButton);
-	MemoryFunction::CheckMem(this->_scoreLabel);
-	MemoryFunction::CheckMem(this->_clearGauge);
-
-	Object::lane->Initialize();
-	Object::judgeLine->Initialize();
-	Object::judgeResultLabel->Initialize();
-	this->_judgeButton->Initialize();
-	this->_scoreLabel->Initialize();
-	this->_clearGauge->Initialize();
-	#pragma endregion
-
 	#pragma region 値の初期化
 	this->_move_background = true;
 	this->_background_graph = GraphicResource::GetHandle("AirBack")[0];
@@ -60,6 +40,35 @@ void GameScene::Initialize()
 	Counter::_goodCnt = 0;
 	Counter::_missCnt = 0;
 	Counter::_score = 0;
+	//難易度(楽曲選択画面で決める)
+	SelectMusic::level = Level::hard;
+	#pragma endregion
+
+	#pragma region オブジェクトの初期化
+	Object::lane = new Lane();
+	Object::judgeLine = new JudgeLine();
+	Object::judgeResultLabel = new JudgeResultLabel();
+	this->_judgeButton = new JudgeButton();
+	this->_scoreLabel = new ScoreLabel();
+	this->_clearGauge = new ClearGauge();
+	this->_notesController = new NotesController;
+
+	MemoryFunction::CheckMem(Object::lane);
+	MemoryFunction::CheckMem(Object::judgeLine);
+	MemoryFunction::CheckMem(Object::judgeResultLabel);
+	MemoryFunction::CheckMem(this->_judgeButton);
+	MemoryFunction::CheckMem(this->_scoreLabel);
+	MemoryFunction::CheckMem(this->_clearGauge);
+	MemoryFunction::CheckMem(this->_notesController);
+
+	Object::lane->Initialize();
+	Object::judgeLine->Initialize();
+	Object::judgeResultLabel->Initialize();
+	this->_judgeButton->Initialize();
+	this->_scoreLabel->Initialize();
+	this->_clearGauge->Initialize();
+	NotesCreater::Initialize();
+	this->_notesController->Initialize();
 	#pragma endregion
 }
 
@@ -71,6 +80,8 @@ void GameScene::Finalize()
 	this->_judgeButton->Finalize();
 	this->_scoreLabel->Finalize();
 	this->_clearGauge->Finalize();
+	this->_notesController->Finalize();
+	NotesCreater::Finalize();
 
 	delete Object::lane;
 	delete Object::judgeLine;
@@ -78,6 +89,7 @@ void GameScene::Finalize()
 	delete this->_judgeButton;
 	delete this->_scoreLabel;
 	delete this->_clearGauge;
+	delete this->_notesController;
 
 	GraphicResource::DeleteGraphScope("game");
 	GraphicResource::DeleteGraphScope("uiboard");
@@ -87,6 +99,7 @@ void GameScene::Update()
 {
 	this->_judgeButton->Update();
 	this->_clearGauge->Update();
+	this->_notesController->Update();
 }
 
 void GameScene::Draw()
@@ -99,4 +112,5 @@ void GameScene::Draw()
 	this->_scoreLabel->Draw();
 	this->_judgeButton->Draw();
 	this->_clearGauge->Draw();
+	this->_notesController->Draw();
 }

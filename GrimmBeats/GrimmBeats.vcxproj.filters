@@ -146,6 +146,12 @@
     <Filter Include="ソース ファイル\GameObject\Notes\Tap">
       <UniqueIdentifier>{2e7c38c1-ded5-447e-be42-ee3af7b03e97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameObject\Notes\Hold">
+      <UniqueIdentifier>{29bd351f-daad-454a-9526-b21cebaf0fb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Notes\Controller">
+      <UniqueIdentifier>{f21cd353-5eb9-4d32-88ac-1165e9e45f1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -283,6 +289,12 @@
     <ClCompile Include="TapNotes.cpp">
       <Filter>ソース ファイル\GameObject\Notes\Tap</Filter>
     </ClCompile>
+    <ClCompile Include="NotesCreater.cpp">
+      <Filter>ソース ファイル\GameObject\Notes\Creater</Filter>
+    </ClCompile>
+    <ClCompile Include="NotesController.cpp">
+      <Filter>ソース ファイル\GameObject\Notes\Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -399,9 +411,6 @@
     <ClInclude Include="SpeedLabel.h">
       <Filter>ソース ファイル\GameObject\UI\MusicSelectUI\Label</Filter>
     </ClInclude>
-    <ClInclude Include="Notes.h">
-      <Filter>ソース ファイル\GameObject\Notes</Filter>
-    </ClInclude>
     <ClInclude Include="JudgeButton.h">
       <Filter>ソース ファイル\GameObject\UI\GameUI</Filter>
     </ClInclude>
@@ -419,6 +428,15 @@
     </ClInclude>
     <ClInclude Include="TapNotes.h">
       <Filter>ソース ファイル\GameObject\Notes\Tap</Filter>
+    </ClInclude>
+    <ClInclude Include="NotesCreater.h">
+      <Filter>ソース ファイル\GameObject\Notes\Creater</Filter>
+    </ClInclude>
+    <ClInclude Include="NotesController.h">
+      <Filter>ソース ファイル\GameObject\Notes\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Notes.h">
+      <Filter>ソース ファイル\GameObject\Notes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

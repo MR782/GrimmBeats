@@ -21,6 +21,7 @@ public:
 
 namespace SelectMusic {
 	extern std::string Name;
+	extern Level level;
 }
 
 extern SceneManager* sceneManager;

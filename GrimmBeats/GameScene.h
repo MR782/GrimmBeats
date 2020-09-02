@@ -6,11 +6,13 @@
 #include"JudgeResultLabel.h"
 #include"ClearGauge.h"
 #include"ScoreLabel.h"
+#include"NotesController.h"
 
 class GameScene : public Scene {
 	ScoreLabel* _scoreLabel;
 	JudgeButton* _judgeButton;
 	ClearGauge* _clearGauge;
+	NotesController* _notesController;
 public:
 	void Initialize()override;
 	void Finalize()override;
