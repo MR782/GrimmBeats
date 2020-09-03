@@ -8,7 +8,7 @@
 #include"TapNotes.h"
 #include"HoldNotes.h"
 
-std::vector<Notes*> NotesCreater::_notesList;
+std::vector<std::unique_ptr<Notes>> NotesCreater::_notesList;
 
 NotesCreater::NotesKind NotesCreater::IdentificationNotes(int kind)
 {
@@ -30,7 +30,7 @@ void NotesCreater::Initialize()
 		//csv(txt)から読み込み---------------------
 		file >> p_timing >> lane >> kind >> hold_time;
 		//データの代入--------------------------------
-		Notes* note = Create(IdentificationNotes(kind));
+		std::unique_ptr<Notes> note = std::move(Create(IdentificationNotes(kind)));
 		note->SetInfo(p_timing, static_cast<LaneName>(lane), hold_time);
 		//メモリの所有権を配列側に移す
 		_notesList.push_back(std::move(note));
@@ -43,19 +43,19 @@ void NotesCreater::Finalize()
 	_notesList.clear();
 }
 
-std::vector<Notes*> NotesCreater::GetNotesList()
+std::vector<std::unique_ptr<Notes>> NotesCreater::GetNotesList()
 {
-	return _notesList;
+	return std::move(_notesList);
 }
 
-Notes* NotesCreater::Create(NotesKind kind)
+std::unique_ptr<Notes> NotesCreater::Create(NotesKind kind)
 {
 	switch (kind)
 	{
 	case NotesCreater::NotesKind::Tap:
-		return new TapNotes();
+		return std::move(std::make_unique<TapNotes>());
 	case NotesCreater::NotesKind::Hold:
-		return new HoldNotes();
+		return std::move(std::make_unique<HoldNotes>());
 	}
 	throw("ノーツ生成時に異常な値が入っています。NotesCreater::Create(NoteKind)");
 }

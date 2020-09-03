@@ -5,6 +5,14 @@
 #include <algorithm>
 #include <functional>
 
+ClearGauge::ClearGauge()
+{
+	this->_gaugeBookCnt = 0;
+	this->_gaugeCnt = 0;
+	this->_fream = nullptr;
+	this->_books.clear();
+}
+
 void ClearGauge::Initialize()
 {
 	this->_anim = std::make_unique<Animation>();

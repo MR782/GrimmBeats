@@ -1,6 +1,14 @@
 #include "Notes.h"
 #include"GameScene.h"
 
+Notes::Notes()
+{
+	this->_holdTime = 0;
+	this->_judgeFinish = false;
+	this->_lane = LaneName::DLane;
+	this->_perfectTiming = 0;
+}
+
 void Notes::Initialize()
 {
 	this->_lane = LaneName::SPACELane;
@@ -36,6 +44,7 @@ void Notes::SetInfo(float p_timing, LaneName lane, float holdtime)
 	this->_perfectTiming = p_timing;
 	this->_lane = lane;
 	this->_holdTime = holdtime;
+	this->_judgeFinish = false;
 	//YÀ•W‚ÍMoveŠÖ”’†g‚Æ“¯‚¶‚É‚·‚é
 	Rect draw = Rect(Object::lane->GetRect(lane).x + 1,//X
 		(int)(Object::judgeLine->GetPosition().y + ((this->_perfectTiming - Counter::_gameCnt) * -(Object::judgeLine->GetPosition().y) * (0.001f * (float)Necessary::speed))),//Y

@@ -296,7 +296,7 @@
       <Filter>ソース ファイル\GameObject\Notes\Controller</Filter>
     </ClCompile>
     <ClCompile Include="HoldNotes.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\GameObject\Notes\Hold</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

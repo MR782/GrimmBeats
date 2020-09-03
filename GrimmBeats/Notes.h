@@ -13,6 +13,7 @@ protected:
 
 	bool _judgeFinish;//”»’è‚ªI—¹‚µ‚½‚©‚Ç‚¤‚©
 public:
+	Notes();
 	void Initialize()final;
 	void Finalize()final;
 	void Update()final;
