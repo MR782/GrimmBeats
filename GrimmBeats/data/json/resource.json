@@ -496,6 +496,38 @@
         "ui",
         "all"
       ]
+    },
+    {
+      "name": "TapNotes",
+      "path": "./data/graph/game/tapnotes.png",
+      "width": 100,
+      "height": 30,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
+    },
+    {
+      "name": "HoldNotes",
+      "path": "./data/graph/game/holdnotes.png",
+      "width": 100,
+      "height": 30,
+      "vertical": 1,
+      "horizontal": 1,
+      "loop": false,
+      "interval": 0,
+      "sheets": 1,
+      "scope": [
+        "game",
+        "ui",
+        "all"
+      ]
     }
   ]
 }
