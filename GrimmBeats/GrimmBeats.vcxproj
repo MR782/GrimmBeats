@@ -162,6 +162,7 @@
     <ClCompile Include="GamePlayButton.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GraphicResource.cpp" />
+    <ClCompile Include="HoldNotes.cpp" />
     <ClCompile Include="json11.cpp" />
     <ClCompile Include="JsonHelper.cpp" />
     <ClCompile Include="JudgeButton.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="GamePlayButton.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GraphicResource.h" />
+    <ClInclude Include="HoldNotes.h" />
     <ClInclude Include="json11.hpp" />
     <ClInclude Include="JsonHelper.h" />
     <ClInclude Include="JudgeButton.h" />

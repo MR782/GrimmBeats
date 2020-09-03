@@ -21,6 +21,14 @@ JudgeLine* Object::judgeLine;
 JudgeResultLabel* Object::judgeResultLabel;
 #pragma endregion
 
+GameScene::GameScene()
+{
+	this->_clearGauge = nullptr;
+	this->_judgeButton = nullptr;
+	this->_notesController = nullptr;
+	this->_scoreLabel = nullptr;
+}
+
 void GameScene::Initialize()
 {
 	GraphicResource::Load("game");

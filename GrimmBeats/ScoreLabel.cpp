@@ -2,6 +2,11 @@
 #include"ScreenSystem.h"
 #include"GameScene.h"
 
+ScoreLabel::ScoreLabel()
+{
+	this->_socreLabel = nullptr;
+}
+
 void ScoreLabel::Initialize()
 {
 	this->_socreLabel = new Text();

@@ -39,14 +39,14 @@ void NotesController::Draw()
 	LaneNotesDraw(LaneName::SPACELane);
 }
 
-void NotesController::SetNotesList(LaneName lane, Notes* note)
+void NotesController::SetNotesList(LaneName lane, std::unique_ptr<Notes>& note)
 {
 	this->_laneNotesList[lane].push_back(std::move(note));
 }
 
 void NotesController::Allocation()
 {
-	std::vector<Notes*> notesList = NotesCreater::GetNotesList();
+	std::vector<std::unique_ptr<Notes>> notesList = std::move(NotesCreater::GetNotesList());
 
 	for (auto itr = notesList.begin(); itr != notesList.end(); itr++) {
 		SetNotesList((*itr)->GetLane(), (*itr));
@@ -56,7 +56,7 @@ void NotesController::Allocation()
 void NotesController::DeleteNotesData(LaneName lane)
 {
 	for (auto itr = this->_laneNotesList[lane].begin(); itr != this->_laneNotesList[lane].end(); itr++) {
-		delete (*itr);
+		itr->reset();
 	}
 }
 
@@ -66,12 +66,14 @@ void NotesController::LaneNotesUpdate(LaneName lane)
 		(*itr)->Update();
 	}
 	if (this->_laneNotesList[lane].empty()) return;
+	
+	auto item = std::move(this->_laneNotesList[lane].begin());
 	//先頭ノーツのみ判定
-	JudgeResult jr = ((*this->_laneNotesList[lane].begin())->Judge());
-	//判定済みなら削除
-	if (Judged((*this->_laneNotesList[lane].begin())->Judge())) {
+	JudgeResult jr = (*item)->Judge();
+	if ((*item)->GetJudgeFinish() && jr != JudgeResult::Non){
 		ResultUpdate(jr);
-		this->_laneNotesList[lane].erase(this->_laneNotesList[lane].begin());
+		this->_laneNotesList[lane].erase(item);
+		
 	}
 	
 }
@@ -101,10 +103,4 @@ void NotesController::ResultUpdate(JudgeResult jr)
 		Counter::_missCnt++;
 		break;
 	}
-}
-
-bool NotesController::Judged(JudgeResult jr)
-{
-	//判定を行い、かつホールド中でなければ殺す
-	return jr != JudgeResult::Non && jr != JudgeResult::HoldNow;
 }

@@ -14,6 +14,7 @@ class GameScene : public Scene {
 	ClearGauge* _clearGauge;
 	NotesController* _notesController;
 public:
+	GameScene();
 	void Initialize()override;
 	void Finalize()override;
 	void Update()override;

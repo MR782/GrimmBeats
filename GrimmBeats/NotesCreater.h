@@ -6,13 +6,13 @@ class NotesCreater {
 		Tap = 1,
 		Hold = 2
 	};
-	static std::vector<Notes*> _notesList;
+	static std::vector<std::unique_ptr<Notes>> _notesList;
 
 	static NotesKind IdentificationNotes(int kind);
-	static Notes* Create(NotesKind kind);
+	static std::unique_ptr<Notes> Create(NotesKind kind);
 public:
 	static void Initialize();
 	static void Finalize();
 
-	static std::vector<Notes*> GetNotesList();
+	static std::vector<std::unique_ptr<Notes>> GetNotesList();
 };

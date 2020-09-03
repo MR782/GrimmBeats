@@ -24,6 +24,7 @@ class ClearGauge : public GameObject {
 	int _gaugeCnt;//ゲージのたまり具合(ゲージ)
 	int _gaugeBookCnt;//ゲージのたまり具合(本)
 public:
+	ClearGauge();
 	void Initialize()override;
 	void Finalize()override;
 	void Update()override;
