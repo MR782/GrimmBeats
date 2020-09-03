@@ -69,7 +69,7 @@ void NotesController::LaneNotesUpdate(LaneName lane)
 	//先頭ノーツのみ判定
 	JudgeResult jr = ((*this->_laneNotesList[lane].begin())->Judge());
 	//判定済みなら削除
-	if (Judged((*this->_laneNotesList[lane].begin())->Judge())) {
+	if ((*this->_laneNotesList[lane].begin())->GetJudgeFinish()){
 		ResultUpdate(jr);
 		this->_laneNotesList[lane].erase(this->_laneNotesList[lane].begin());
 	}
@@ -101,10 +101,4 @@ void NotesController::ResultUpdate(JudgeResult jr)
 		Counter::_missCnt++;
 		break;
 	}
-}
-
-bool NotesController::Judged(JudgeResult jr)
-{
-	//判定を行い、かつホールド中でなければ殺す
-	return jr != JudgeResult::Non && jr != JudgeResult::HoldNow;
 }

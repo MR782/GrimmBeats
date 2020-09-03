@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include"TapNotes.h"
+#include"HoldNotes.h"
 
 std::vector<Notes*> NotesCreater::_notesList;
 
@@ -53,8 +54,8 @@ Notes* NotesCreater::Create(NotesKind kind)
 	{
 	case NotesCreater::NotesKind::Tap:
 		return new TapNotes();
-		//case NotesCreater::NotesKind::Hold:
-			//return;
+	case NotesCreater::NotesKind::Hold:
+		return new HoldNotes();
 	}
 	throw("ノーツ生成時に異常な値が入っています。NotesCreater::Create(NoteKind)");
 }

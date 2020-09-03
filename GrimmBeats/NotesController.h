@@ -10,7 +10,6 @@ class NotesController {
 	void LaneNotesUpdate(LaneName lane);
 	void LaneNotesDraw(LaneName lane);
 	void ResultUpdate(JudgeResult);
-	bool Judged(JudgeResult);
 public:
 	void Initialize();
 	void Finalize();

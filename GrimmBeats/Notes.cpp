@@ -30,15 +30,22 @@ LaneName Notes::GetLane()
 
 void Notes::SetInfo(float p_timing, LaneName lane, float holdtime)
 {
-	const int notesHeight = 16;
+	float notesHeight = holdtime;
+	if (holdtime == 0)notesHeight = 16;
+
 	this->_perfectTiming = p_timing;
 	this->_lane = lane;
-	this->holdTime = holdtime;
+	this->_holdTime = holdtime;
 	//YÀ•W‚ÍMoveŠÖ”’†g‚Æ“¯‚¶‚É‚·‚é
 	Rect draw = Rect(Object::lane->GetRect(lane).x + 1,//X
-		(int)(Object::judgeLine->GetPosition().y + ((this->_perfectTiming - Counter::_gameCnt)* -(Object::judgeLine->GetPosition().y) * (0.001f * (float)Necessary::speed))),//Y
-		Object::lane->GetRect(lane).w, notesHeight);//W,H
+		(int)(Object::judgeLine->GetPosition().y + ((this->_perfectTiming - Counter::_gameCnt) * -(Object::judgeLine->GetPosition().y) * (0.001f * (float)Necessary::speed))),//Y
+		Object::lane->GetRect(lane).w, -(int)notesHeight);//W,H
 	this->_drawRect = draw;
+}
+
+bool Notes::GetJudgeFinish()
+{
+	return this->_judgeFinish;
 }
 
 void Notes::Move()
