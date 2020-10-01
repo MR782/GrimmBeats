@@ -18,3 +18,13 @@ Vector2 GameObject::GetPosition()
 {
 	return this->_position;
 }
+
+Rect GameObject::GetDrawRect()
+{
+	return this->_drawRect;
+}
+
+std::string GameObject::GetName()
+{
+	return this->name;
+}

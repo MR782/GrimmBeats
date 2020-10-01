@@ -10,6 +10,7 @@ MusicNameLabel::MusicNameLabel()
 
 void MusicNameLabel::Initialize()
 {
+	this->name = "MusciNameLabel";
 	this->_text = new Text();
 	this->_text->SetFont("%s", Point(ScreenData::width / 30, ScreenData::height / 20), CreateMyFont((ScreenData::height / 10), 32, false), SetColor(Color::Black));
 }

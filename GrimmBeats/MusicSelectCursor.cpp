@@ -1,5 +1,6 @@
 #include "MusicSelectCursor.h"
 #include"KeyBoard.h"
+#include"MusicSelectScene.h"
 #include"SceneManager.h"
 #include"MusicDataManager.h"
 #include"Audio.h"
@@ -7,6 +8,7 @@
 
 void MusicSelectCursor::Initialize()
 {
+	this->name = "MusicSelectCursor";
 	this->_anim = std::make_unique<Animation>();
 	this->_anim->Set("MusicSelectCursor");
 
@@ -28,13 +30,13 @@ void MusicSelectCursor::Update()
 	#pragma region ƒJ[ƒ\ƒ‹‘€ì
 	this->CursorSet(KEY_INPUT_UP, (MusicList)(((int)FindMusicItem(SelectMusic::Name) + 1) % ((int)this->_musiclist.size())));
 	this->CursorSet(KEY_INPUT_DOWN, (MusicList)(((int)FindMusicItem(SelectMusic::Name) + (this->_musiclist.size() - 1)) % (this->_musiclist.size())));
-	UIModel::musicItemList->GetRect(SelectMusic::Name);
+	MusicListItemButton::GetRect(SelectMusic::Name);
 	#pragma endregion
 }
 
 void MusicSelectCursor::Draw()
 {
-	Rect draw = UIModel::musicItemList->GetRect(SelectMusic::Name);
+	Rect draw = MusicListItemButton::GetRect(SelectMusic::Name);
 	draw -= 10;
 	this->_anim->BlinkExtendDraw(200,240,draw);
 }
@@ -56,6 +58,6 @@ void MusicSelectCursor::CursorSet(int key, MusicList item)
 		Audio::StopScope("musicselect");
 		SelectMusic::Name = this->_musiclist[item];
 		Audio::Play("cursor_MusicSelect");
-		Audio::Play(MusicDataManager::GetInfo(SelectMusic::Name).demomusicName,false);
+		Audio::Play(MusicDataManager::GetInfo(SelectMusic::Name).demomusicName, false);
 	}
 }

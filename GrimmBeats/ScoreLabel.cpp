@@ -1,6 +1,7 @@
 #include "ScoreLabel.h"
 #include"ScreenSystem.h"
 #include"GameScene.h"
+#include"SceneManager.h"
 
 ScoreLabel::ScoreLabel()
 {
@@ -9,11 +10,15 @@ ScoreLabel::ScoreLabel()
 
 void ScoreLabel::Initialize()
 {
+	this->name = "ScoreLabel";
 	this->_socreLabel = new Text();
 	int strSize = ScreenData::width / 30;
+
+	Rect uiBoardRect = sceneManager->FindActor("JudgeResultLabel")->GetDrawRect();
+
 	this->_socreLabel->SetFont("SCORE : %6d",
-		Point(Object::judgeResultLabel->GetUIBoardRect().x + (strSize / 2),
-			Object::judgeResultLabel->GetUIBoardRect().y + Object::judgeResultLabel->GetUIBoardRect().h - (strSize * 5)),
+		Point(uiBoardRect.x + (strSize / 2),
+			uiBoardRect.y + uiBoardRect.h - (strSize * 5)),
 		CreateMyFont(strSize, strSize / 2, false), SetColor(Color::Black));
 }
 

@@ -79,6 +79,23 @@ void Animation::ExtendAnimeDraw(Rect rect)
 	}
 }
 
+void Animation::ExtendRectDraw(Rect rect)
+{
+	//オブジェクトが空でないなら
+	if (object != nullptr) {
+		//dxlibの描画命令
+		DrawExtendGraph(rect.x, rect.y, rect.w, rect.h,
+			*(object->handle + current_anime), TRUE);
+		current_rate++;
+		if (object->interval != 0) {//インターバルが設定されているなら
+			if (object->interval / current_rate == 1) { //インターバルをレートで割って答えが　1　なら
+				current_rate = 0;//レートを0に設定
+				SwitchAnime();//アニメーションの処理(画像切り替え)
+			}
+		}
+	}
+}
+
 void Animation::BlinkDraw(int period, int a_percent, Vector2 pos)
 {
 	if (this == nullptr) return;

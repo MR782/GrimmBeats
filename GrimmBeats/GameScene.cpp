@@ -5,6 +5,18 @@
 #include"NotesCreater.h"
 #include"MemoryFunc.h"
 #include"SceneManager.h"
+#include"KeyBoard.h"
+#include"Audio.h"
+#include"./dxlib/DxLib.h"
+#include"Lane.h"
+#include"JudgeLine.h"
+#include"JudgeButton.h"
+#include"JudgeResultLabel.h"
+#include"ClearGauge.h"
+#include"ScoreLabel.h"
+#include"NotesController.h"
+#include"ComboLabel.h"
+#include "MusicDataManager.h"
 
 #pragma region カウンター
 float Counter::_gameCnt;
@@ -13,28 +25,22 @@ int Counter::_greatCnt;
 int Counter::_goodCnt;
 int Counter::_missCnt;
 int Counter::_score;
-#pragma endregion
-
-#pragma region オブジェクト
-Lane* Object::lane;
-JudgeLine* Object::judgeLine;
-JudgeResultLabel* Object::judgeResultLabel;
+int Counter::_comboCnt;
 #pragma endregion
 
 GameScene::GameScene()
 {
-	this->_clearGauge = nullptr;
-	this->_judgeButton = nullptr;
-	this->_notesController = nullptr;
-	this->_scoreLabel = nullptr;
+	this->_isStart = false;
 }
 
 void GameScene::Initialize()
 {
 	GraphicResource::Load("game");
 	GraphicResource::Load("uiboard");
+	Audio::Load("game");
 
 	#pragma region 値の初期化
+	this->_isStart = false;
 	this->_move_background = true;
 	this->_background_graph = GraphicResource::GetHandle("AirBack")[0];
 	this->graph_Xsize = ScreenData::width * 2;
@@ -48,77 +54,54 @@ void GameScene::Initialize()
 	Counter::_goodCnt = 0;
 	Counter::_missCnt = 0;
 	Counter::_score = 0;
+	Counter::_comboCnt = 0;
 	//難易度(楽曲選択画面で決める)
 	SelectMusic::level = Level::hard;
 	#pragma endregion
 
 	#pragma region オブジェクトの初期化
-	Object::lane = new Lane();
-	Object::judgeLine = new JudgeLine();
-	Object::judgeResultLabel = new JudgeResultLabel();
-	this->_judgeButton = new JudgeButton();
-	this->_scoreLabel = new ScoreLabel();
-	this->_clearGauge = new ClearGauge();
-	this->_notesController = new NotesController;
+	sceneManager->AddActor(new Lane());
+	sceneManager->AddActor(new JudgeLine());
+	sceneManager->AddActor(new JudgeResultLabel());
+	sceneManager->AddActor(new ClearGauge());
+	sceneManager->AddActor(new NotesController());
+	sceneManager->AddActor(new ScoreLabel());
+	sceneManager->AddActor(new ComboLabel());
+	sceneManager->AddActor(new JudgeButton());
 
-	MemoryFunction::CheckMem(Object::lane);
-	MemoryFunction::CheckMem(Object::judgeLine);
-	MemoryFunction::CheckMem(Object::judgeResultLabel);
-	MemoryFunction::CheckMem(this->_judgeButton);
-	MemoryFunction::CheckMem(this->_scoreLabel);
-	MemoryFunction::CheckMem(this->_clearGauge);
-	MemoryFunction::CheckMem(this->_notesController);
-
-	Object::lane->Initialize();
-	Object::judgeLine->Initialize();
-	Object::judgeResultLabel->Initialize();
-	this->_judgeButton->Initialize();
-	this->_scoreLabel->Initialize();
-	this->_clearGauge->Initialize();
 	NotesCreater::Initialize();
-	this->_notesController->Initialize();
 	#pragma endregion
 }
 
 void GameScene::Finalize()
 {
-	Object::lane->Finalize();
-	Object::judgeLine->Finalize();
-	Object::judgeResultLabel->Finalize();
-	this->_judgeButton->Finalize();
-	this->_scoreLabel->Finalize();
-	this->_clearGauge->Finalize();
-	this->_notesController->Finalize();
+	this->_bgPosition.clear();
 	NotesCreater::Finalize();
 
-	delete Object::lane;
-	delete Object::judgeLine;
-	delete Object::judgeResultLabel;
-	delete this->_judgeButton;
-	delete this->_scoreLabel;
-	delete this->_clearGauge;
-	delete this->_notesController;
+	sceneManager->KillActorALL();
 
+	Necessary::DeleteMusicListItem();
+	
+	Time::DeleteTimer("StartGame");
+	Audio::DeleteSoundDataScope("game");
 	GraphicResource::DeleteGraphScope("game");
 	GraphicResource::DeleteGraphScope("uiboard");
 }
 
 void GameScene::Update()
 {
-	this->_judgeButton->Update();
-	this->_clearGauge->Update();
-	this->_notesController->Update();
+	//仮処理？(Guideつけるかも)
+	if (KeyBoard::KeyDown(KEY_INPUT_RETURN) && this->_isStart == false) {
+		Time::CreateTimer("StartGame");
+		Audio::Play(MusicDataManager::GetInfo(SelectMusic::Name).musicName, false);
+		this->_isStart = true;
+	}
+	Counter::_gameCnt = Time::GetElapsedTime("StartGame", Time::TimeFormat::Fream);
+	//------------------------------------------------------------------------------
+	sceneManager->ChangeScene(this->_isStart && Audio::CheckPlayScope("game") == false, SceneKind::MusicSelect);
 }
 
 void GameScene::Draw()
 {
 	this->DrawMoveBG();
-
-	Object::lane->Draw();
-	Object::judgeLine->Draw();
-	Object::judgeResultLabel->Draw();
-	this->_scoreLabel->Draw();
-	this->_judgeButton->Draw();
-	this->_clearGauge->Draw();
-	this->_notesController->Draw();
 }

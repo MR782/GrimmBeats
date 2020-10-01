@@ -8,7 +8,12 @@ class HoldNotes : public Notes {
 	};
 	HoldState _state;
 	int _holdCnt;
+
+	void Move()override;
 public:
 	HoldNotes();
+	void Draw()override;
+
 	JudgeResult Judge()override;
+	void SetInfo(float p_timing, LaneName lane, float endtime);
 };

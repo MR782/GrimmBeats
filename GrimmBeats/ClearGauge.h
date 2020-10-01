@@ -17,12 +17,11 @@ class ClearGauge : public GameObject {
 			return this->turnNo > right.turnNo;
 		}
 	};
-
-	std::vector<Book*> _books;
 	ClearGaugeFream* _fream;
 
-	int _gaugeCnt;//ゲージのたまり具合(ゲージ)
-	int _gaugeBookCnt;//ゲージのたまり具合(本)
+	static std::vector<Book*> _books;
+	static int _gaugeCnt;//ゲージのたまり具合(ゲージ)
+	static int _gaugeBookCnt;//ゲージのたまり具合(本)
 public:
 	ClearGauge();
 	void Initialize()override;
@@ -30,6 +29,6 @@ public:
 	void Update()override;
 	void Draw()override;
 
-	void IncreaseGaugeCnt(int addval);
-	void DecreaseGaugeCnt(int decreaseval);
+	static void IncreaseGaugeCnt(int addval);
+	static void DecreaseGaugeCnt(int decreaseval);
 };

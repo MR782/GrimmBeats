@@ -6,8 +6,6 @@
 
 class TitleScene : public Scene {
 	std::unique_ptr<Movie> _movie;
-	TitleGuide* _titleGuide;
-	TitleLogo* _titleLogo;
 public:
 	TitleScene();
 	void Initialize()override;

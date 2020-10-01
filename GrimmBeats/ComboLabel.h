@@ -1,13 +1,11 @@
 #pragma once
 #include"GameObject.h"
 #include "BasicUI.h"
-#include"Necessary.h"
 
-class JudgeResultLabel : public GameObject {
-	std::map<JudgeResult, Text*> _resultText;
-
-	int GetJudgeResultCnt(JudgeResult);
+class ComboLabel : public GameObject {
+	Text* _comboLabel;
 public:
+	ComboLabel();
 	void Initialize()override;
 	void Finalize()override;
 	void Update()override;

@@ -1,5 +1,6 @@
 #include "Notes.h"
 #include"GameScene.h"
+#include"SceneManager.h"
 
 Notes::Notes()
 {
@@ -11,6 +12,7 @@ Notes::Notes()
 
 void Notes::Initialize()
 {
+	this->name = "Notes";
 	this->_lane = LaneName::SPACELane;
 	this->_perfectTiming = 0;
 	this->_position = Vector2();
@@ -38,17 +40,18 @@ LaneName Notes::GetLane()
 
 void Notes::SetInfo(float p_timing, LaneName lane, float holdtime)
 {
-	float notesHeight = holdtime;
-	if (holdtime == 0)notesHeight = 16;
+	float notesHeight = 16;
 
 	this->_perfectTiming = p_timing;
 	this->_lane = lane;
 	this->_holdTime = holdtime;
 	this->_judgeFinish = false;
 	//Y座標はMove関数中身と同じにする
-	Rect draw = Rect(Object::lane->GetRect(lane).x + 1,//X
-		(int)(Object::judgeLine->GetPosition().y + ((this->_perfectTiming - Counter::_gameCnt) * -(Object::judgeLine->GetPosition().y) * (0.001f * (float)Necessary::speed))),//Y
-		Object::lane->GetRect(lane).w, -(int)notesHeight);//W,H
+	Vector2 judgeLinePos = sceneManager->FindActor("JudgeLine")->GetPosition();
+
+	Rect draw = Rect(Lane::GetLaneRect(lane).x + 1,//X
+		(int)(judgeLinePos.y + ((this->_perfectTiming - Counter::_gameCnt) * -(judgeLinePos.y) * (0.001f * (float)Necessary::speed))),//Y
+		Lane::GetLaneRect(lane).w, (int)-notesHeight);//W,H
 	this->_drawRect = draw;
 }
 
@@ -59,13 +62,9 @@ bool Notes::GetJudgeFinish()
 
 void Notes::Move()
 {
-	float posY = Object::judgeLine->GetPosition().y + ((this->_perfectTiming - Counter::_gameCnt)
-		* -(Object::judgeLine->GetPosition().y) * (0.001f * (float)Necessary::speed));
-	//終点の位置 + 終点から始点への方向 * ((判定ラインにくる時間 - 曲の再生時間)*レーンの長さ*スピード);                                    
-	/*
-	float posY = Model::judge_line->get_position().y + ((this->_perfectTiming - Counter::_gameCnt)
-		* -(Model::judge_line->get_position().y) * (0.001f * Necessary::speed));
-	this->_drawRect.y = posY;
-	*/
+	Vector2 judgeLinePos = sceneManager->FindActor("JudgeLine")->GetPosition();
+	float posY = judgeLinePos.y + ((this->_perfectTiming - Counter::_gameCnt)
+		* -(judgeLinePos.y) * (0.001f * (float)Necessary::speed));
+
 	this->_drawRect.y = (int)posY;
 }

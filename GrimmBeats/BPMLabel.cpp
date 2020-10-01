@@ -10,6 +10,7 @@ BPMLabel::BPMLabel()
 
 void BPMLabel::Initialize()
 {
+	this->name = "BPMLabel";
 	this->_text = new Text();
 	this->_text->SetFont("BPM : %d", Point(ScreenData::width / 25, ScreenData::height / 3), CreateMyFont((ScreenData::height / 10) - 30, 16, false), SetColor(Color::Black));
 }

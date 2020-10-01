@@ -1,16 +1,19 @@
 #include "MusicListItemButton.h"
 #include"ScreenSystem.h"
 
+std::vector<MusicListItemButton::MusicListItem> MusicListItemButton::_items;
+
 void MusicListItemButton::AddItem(std::string name, std::string graphname, Rect rect)
 {
 	MusicListItem item = MusicListItem(name,rect);
 	item._anime = std::make_unique<Animation>();
 	item._anime->Set(graphname);
-	this->_items.push_back(std::move(item));
+	_items.push_back(std::move(item));
 }
 
 void MusicListItemButton::Initialize()
 {
+	this->name = "MusicListItemButton";
 	AddItem("Air", "ListItem_Air", Rect(ScreenData::width / 2 + ScreenData::width / 10, ScreenData::height / 5, ScreenData::width / 2 - ScreenData::width / 6, ScreenData::height / 10));
 	AddItem("PROVIDENCE-CORE", "ListItem_PROVIDENCE-CORE", Rect(ScreenData::width / 2 + ScreenData::width / 10, ScreenData::height / 5 + ScreenData::height / 5, ScreenData::width / 2 - ScreenData::width / 6, ScreenData::height / 10));
 }
@@ -33,7 +36,7 @@ void MusicListItemButton::Draw()
 
 Rect MusicListItemButton::GetRect(std::string name)
 {
-	for (auto itr = this->_items.begin(); itr != this->_items.end(); itr++) {
+	for (auto itr = _items.begin(); itr != _items.end(); itr++) {
 		if ((*itr)._name == name) {
 			return (*itr)._rect;
 		}

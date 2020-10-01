@@ -11,6 +11,7 @@ SpeedLabel::SpeedLabel()
 
 void SpeedLabel::Initialize()
 {
+	this->name = "SpeedLabel";
 	this->_anim = std::make_unique<Animation>();
 	this->_anim->Set("TxtBox");
 	// 1048:600
@@ -30,7 +31,7 @@ void SpeedLabel::Finalize()
 
 void SpeedLabel::Update()
 {
-	if (KeyBoard::KeyDown(KEY_INPUT_J) || KeyBoard::KeyDown(KEY_INPUT_K)) Necessary::speed = min(10, Necessary::speed + 1);
+	if (KeyBoard::KeyDown(KEY_INPUT_J) || KeyBoard::KeyDown(KEY_INPUT_K)) Necessary::speed = min(20, Necessary::speed + 1);
 	if (KeyBoard::KeyDown(KEY_INPUT_D) || KeyBoard::KeyDown(KEY_INPUT_F)) Necessary::speed = max(1, Necessary::speed - 1);
 }
 

@@ -1,6 +1,8 @@
 #include "Scene.h"
+#include"MemoryFunc.h"
 #include"ScreenSystem.h"
 #include"./dxlib/DxLib.h"
+
 
 Scene::Scene()
 {
@@ -45,12 +47,12 @@ void Scene::DrawBG()
 void Scene::DrawMoveBG()
 {
 	//ˆÚ“®ˆ—‚Æ2–‡–Ú‚Ì”wŒi‚ð•`‰æ‚·‚é
-	#pragma region ”wŒiˆÚ“®(XˆÚ“®ˆ—)
+#pragma region ”wŒiˆÚ“®(XˆÚ“®ˆ—)
 	this->_bgPosition["bg1"].x -= 1;
 	this->_bgPosition["bg2"].x -= 1;
 	if (this->_bgPosition["bg1"].x < -this->graph_Xsize) this->_bgPosition["bg1"].x = this->graph_Xsize - 1;
 	if (this->_bgPosition["bg2"].x < -this->graph_Xsize) this->_bgPosition["bg2"].x = this->graph_Xsize - 1;
-	#pragma endregion
+#pragma endregion
 
 	DrawExtendGraph(this->_bgPosition["bg2"].x, this->_bgPosition["bg2"].y,
 		this->graph_Xsize + this->_bgPosition["bg2"].x, ScreenData::height,

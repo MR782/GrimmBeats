@@ -3,6 +3,11 @@
 #include"ScreenFunction.h"
 #include"MemoryFunc.h"
 #include"Audio.h"
+#include"TitleScene.h"
+#include"GameScene.h"
+#include"ModeSelectScene.h"
+#include"MusicSelectScene.h"
+#include"MusicPlayerScene.h"
 
 std::string SelectMusic::Name;
 Level SelectMusic::level;
@@ -27,14 +32,22 @@ void SceneManager::Finalize()
 void SceneManager::Update()
 {
 	this->_nowScene->Update();
-
+	if (ScreenFunction::CheckBlendMin() && !this->_actors.empty()) {
+		for (auto itr = this->_actors.begin(); itr != this->_actors.end(); itr++) {
+			(*itr)->Update();
+		}
+	}
 	ScreenFunction::Update();
 }
 
 void SceneManager::Draw()
 {
 	this->_nowScene->Draw();
-
+	if (!this->_actors.empty()) {
+		for (auto itr = this->_actors.begin(); itr != this->_actors.end(); itr++) {
+			(*itr)->Draw();
+		}
+	}
 	ScreenFunction::Draw();
 }
 
@@ -52,6 +65,43 @@ bool SceneManager::ChangeScene(bool trriger, SceneKind nextscene)
 	return false;
 }
 
+void SceneManager::AddActor(GameObject* actor)
+{
+	MemoryFunction::CheckMem(&actor);
+	actor->Initialize();
+	this->_actors.push_back(std::move(actor));
+}
+
+GameObject* SceneManager::FindActor(std::string name)
+{
+	for (auto itr = this->_actors.begin(); itr != this->_actors.end(); itr++) {
+		if ((*itr)->GetName() != name) continue;
+		return (*itr);
+	}
+	throw("指定されたゲームオブジェクトが見つかりませんでした");
+}
+
+void SceneManager::KillActor(std::string name)
+{
+	for (auto itr = this->_actors.begin(); itr != this->_actors.end(); itr++) {
+		if ((*itr)->GetName() != name) continue;
+		(*itr)->Finalize();
+		delete (*itr);
+		this->_actors.erase(itr);
+		return;
+	}
+	throw("指定されたゲームオブジェクトが見つかりませんでした");
+}
+
+void SceneManager::KillActorALL()
+{
+	for (auto itr = this->_actors.begin(); itr != this->_actors.end(); itr++) {
+		(*itr)->Finalize();
+		delete (*itr);
+	}
+	this->_actors.clear();
+}
+
 Scene* SceneManager::SetNextScene(SceneKind kind)
 {
 	switch (kind)
@@ -59,6 +109,7 @@ Scene* SceneManager::SetNextScene(SceneKind kind)
 	case SceneKind::Title:		return new TitleScene();
 	case SceneKind::ModeSelect: return new ModeSelectScene();
 	case SceneKind::MusicSelect:return new MusicSelectScene();
+	case SceneKind::MusicPlayer: return new MusicPlayerScene();
 	case SceneKind::Game:		return new GameScene();
 	case SceneKind::Result:		return new TitleScene();
 	default: throw("予期しないシーンが代入されています");

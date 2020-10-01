@@ -74,14 +74,8 @@
     <Filter Include="ソース ファイル\GameObject\JudgeLine">
       <UniqueIdentifier>{b463f264-2438-41ef-9d8c-7c924e3c4fda}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Info">
-      <UniqueIdentifier>{67e53757-fc5c-4be6-a7e7-5b52328c134a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Commponent\Resource\Json\Helper">
       <UniqueIdentifier>{a6112507-c13d-4e87-a10a-24ca78fec6de}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Info\MusicInfoManager">
-      <UniqueIdentifier>{8a583a00-7bc9-4349-a0ff-2b57d6039273}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Scene\Manager">
       <UniqueIdentifier>{a0561e2a-eb42-4e2f-a7e3-193acbd326e7}</UniqueIdentifier>
@@ -151,6 +145,21 @@
     </Filter>
     <Filter Include="ソース ファイル\GameObject\Notes\Controller">
       <UniqueIdentifier>{f21cd353-5eb9-4d32-88ac-1165e9e45f1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\MusicPlayerScene">
+      <UniqueIdentifier>{2d497fd1-4b59-4021-a5b7-4e6ca82d5a2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\UI\MusicPlayerUI">
+      <UniqueIdentifier>{e6fa755c-6781-4010-976c-ee60a2266b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\ResultScene">
+      <UniqueIdentifier>{36886a68-01a0-47fe-a37f-9a18b9e37c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Info">
+      <UniqueIdentifier>{67e53757-fc5c-4be6-a7e7-5b52328c134a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Info\MusicInfoManager">
+      <UniqueIdentifier>{8a583a00-7bc9-4349-a0ff-2b57d6039273}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -298,6 +307,15 @@
     <ClCompile Include="HoldNotes.cpp">
       <Filter>ソース ファイル\GameObject\Notes\Hold</Filter>
     </ClCompile>
+    <ClCompile Include="ComboLabel.cpp">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicPlayerScene.cpp">
+      <Filter>ソース ファイル\Scene\MusicPlayerScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicPlayerCursol.cpp">
+      <Filter>ソース ファイル\GameObject\UI\MusicPlayerUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -443,6 +461,15 @@
     </ClInclude>
     <ClInclude Include="HoldNotes.h">
       <Filter>ソース ファイル\GameObject\Notes\Hold</Filter>
+    </ClInclude>
+    <ClInclude Include="ComboLabel.h">
+      <Filter>ソース ファイル\GameObject\UI\GameUI\Label</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicPlayerScene.h">
+      <Filter>ソース ファイル\Scene\MusicPlayerScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicPlayerCursol.h">
+      <Filter>ソース ファイル\GameObject\UI\MusicPlayerUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

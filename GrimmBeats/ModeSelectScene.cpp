@@ -5,11 +5,10 @@
 #include"KeyBoard.h"
 #include"SceneManager.h"
 #include"GraphicResource.h"
+#include"ModeSelectCursor.h"
+#include"GamePlayButton.h"
+#include"MusicPlayerButton.h"
 #include"./dxlib/DxLib.h"
-
-ModeSelectCursor* ModeSelectUI::cursol;
-GamePlayerButton* ModeSelectUI::gameplay_button;
-MusicPlayerButton* ModeSelectUI::musicplay_button;
 
 void ModeSelectScene::Initialize()
 {
@@ -27,13 +26,9 @@ void ModeSelectScene::Initialize()
 	#pragma endregion
 
 	#pragma region オブジェクトの初期化
-	ModeSelectUI::cursol = new ModeSelectCursor();
-	ModeSelectUI::gameplay_button = new GamePlayerButton();
-	ModeSelectUI::musicplay_button = new MusicPlayerButton();
-
-	ModeSelectUI::cursol->Initialize();
-	ModeSelectUI::gameplay_button->Initialize();
-	ModeSelectUI::musicplay_button->Initialize();
+	sceneManager->AddActor(new ModeSelectCursor());
+	sceneManager->AddActor(new GamePlayerButton());
+	sceneManager->AddActor(new MusicPlayerButton());
 	#pragma endregion
 }
 
@@ -45,25 +40,14 @@ void ModeSelectScene::Finalize()
 	Audio::DeleteSoundDataScope("modeselect");
 	GraphicResource::DeleteGraphScope("modeselect");
 
-	ModeSelectUI::cursol->Finalize();
-	ModeSelectUI::gameplay_button->Finalize();
-	ModeSelectUI::musicplay_button->Finalize();
-
-	delete ModeSelectUI::cursol;
-	delete ModeSelectUI::gameplay_button;
-	delete ModeSelectUI::musicplay_button;
+	sceneManager->KillActorALL();
 }
 
 void ModeSelectScene::Update()
 {
-	//フェードIOの最中でなければ
-	if (ScreenFunction::CheckBlendMin()) {
-		ModeSelectUI::cursol->Update();
-	}
-	
 	#pragma region シーン遷移処理
 	//シーン切り替え-----ENTERを押すとシーン遷移-----------------------------------
-	switch (ModeSelectUI::cursol->GetNextScene())
+	switch (ModeSelectCursor::GetNextScene())
 	{
 	case ModeSelectCursor::NextScene::MusicSelect:
 		sceneManager->ChangeScene(KeyBoard::KeyDown(KEY_INPUT_RETURN), SceneKind::MusicSelect);
@@ -81,7 +65,4 @@ void ModeSelectScene::Update()
 void ModeSelectScene::Draw()
 {
 	this->DrawBG();
-	ModeSelectUI::cursol->Draw();
-	ModeSelectUI::gameplay_button->Draw();
-	ModeSelectUI::musicplay_button->Draw();
 }

@@ -8,7 +8,7 @@ public:
 		MusicPlayer = 1
 	};
 private:
-	NextScene _nextScene;
+	static NextScene _nextScene;
 	Rect _draw;
 	void SetPosition();
 	void CursorMove(int,NextScene);
@@ -19,5 +19,5 @@ public:
 	void Update()override;
 	void Draw()override;
 	
-	NextScene GetNextScene();
+	static NextScene GetNextScene();
 };

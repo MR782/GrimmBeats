@@ -10,8 +10,8 @@ enum class LaneName {
 };
 
 class Lane : public GameObject {
-	std::map<LaneName,Rect> _lane;//レーンの描画位置とレーン名
-	std::map<LaneName,int> _keycode;//レーンに対応したキーをセット
+	static std::map<LaneName,Rect> _lane;//レーンの描画位置とレーン名
+	static std::map<LaneName,int> _keycode;//レーンに対応したキーをセット
 
 	bool IsPressed(LaneName);
 	void DrawWhiteLane(LaneName);
@@ -22,6 +22,6 @@ public:
 	void Update()override;
 	void Draw()override;
 
-	Rect GetRect(LaneName);
-	int GetKeyCode(LaneName);
+	static Rect GetLaneRect(LaneName);
+	static int GetKeyCode(LaneName);
 };

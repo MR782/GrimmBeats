@@ -8,6 +8,7 @@ void TitleGuide::Initialize()
 	this->_anim = std::make_unique<Animation>();
 	this->_anim->Set("TitleGuide");
 	this->_position = Vector2();
+	this->name = "TitleGuide";
 }
 
 void TitleGuide::Finalize()

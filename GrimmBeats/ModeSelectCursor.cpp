@@ -2,11 +2,14 @@
 #include"KeyBoard.h"
 #include"ModeSelectScene.h"
 #include"Audio.h"
+#include"SceneManager.h"
 #include"./dxlib/DxLib.h"
+
+ModeSelectCursor::NextScene ModeSelectCursor::_nextScene;
 
 ModeSelectCursor::ModeSelectCursor()
 {
-	this->_nextScene = NextScene::MusicSelect;
+	_nextScene = NextScene::MusicSelect;
 }
 
 void ModeSelectCursor::Initialize()
@@ -14,7 +17,7 @@ void ModeSelectCursor::Initialize()
 	this->_anim = std::make_unique<Animation>();
 	this->_anim->Set("ModeSelectCursor");
 
-	this->_nextScene = NextScene::MusicSelect;
+	_nextScene = NextScene::MusicSelect;
 	this->_position = Vector2();
 	this->_draw = Rect();
 }
@@ -28,8 +31,8 @@ void ModeSelectCursor::Update()
 {
 	const int SceneNum = 2;
 	#pragma region ƒJ[ƒ\ƒ‹‘€ì
-	CursorMove(KEY_INPUT_UP, (NextScene)(((int)this->_nextScene + 1) % SceneNum));
-	CursorMove(KEY_INPUT_DOWN, (NextScene)(((int)this->_nextScene + (SceneNum - 1)) % SceneNum));
+	CursorMove(KEY_INPUT_UP, (NextScene)(((int)_nextScene + 1) % SceneNum));
+	CursorMove(KEY_INPUT_DOWN, (NextScene)(((int)_nextScene + (SceneNum - 1)) % SceneNum));
 	this->SetPosition();
 	#pragma endregion
 }
@@ -41,7 +44,7 @@ void ModeSelectCursor::Draw()
 
 ModeSelectCursor::NextScene ModeSelectCursor::GetNextScene()
 {
-	return this->_nextScene;
+	return _nextScene;
 }
 
 void ModeSelectCursor::SetPosition()
@@ -49,10 +52,10 @@ void ModeSelectCursor::SetPosition()
 	switch (this->_nextScene)
 	{
 	case ModeSelectCursor::NextScene::MusicSelect:
-		this->_draw = ModeSelectUI::gameplay_button->GetDrawRect();
+		this->_draw = sceneManager->FindActor("GamePlayButton")->GetDrawRect();
 		break;
 	case ModeSelectCursor::NextScene::MusicPlayer:
-		this->_draw = ModeSelectUI::musicplay_button->GetDrawRect();
+		this->_draw = sceneManager->FindActor("MusicPlayerButton")->GetDrawRect();
 		break;
 	}
 	this->_draw -= 10;

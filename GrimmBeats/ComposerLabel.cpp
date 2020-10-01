@@ -10,6 +10,7 @@ ComposerLabel::ComposerLabel()
 
 void ComposerLabel::Initialize()
 {
+	this->name = "ComposerLabel";
 	this->_text = new Text();
 	this->_text->SetFont("ì‹ÈÒ : %s", Point(ScreenData::width / 25, ScreenData::height / 4), CreateMyFont((ScreenData::height / 10) - 30, 16, false), SetColor(Color::Black));
 }

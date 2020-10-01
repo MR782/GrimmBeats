@@ -1,10 +1,13 @@
 #include "JudgeResultLabel.h"
 #include"ScreenSystem.h"
 #include"GameScene.h"
+#include"Lane.h"
 
 void JudgeResultLabel::Initialize()
 {
-	this->_drawRect = Rect(0,ScreenData::height / 6,Object::lane->GetRect(LaneName::DLane).x - ScreenData::width / 120,ScreenData::height - ScreenData::height / 3);
+	this->name = "JudgeResultLabel";
+
+	this->_drawRect = Rect(0,ScreenData::height / 6, Lane::GetLaneRect(LaneName::DLane).x - ScreenData::width / 120,ScreenData::height - ScreenData::height / 3);
 	this->_anim = std::make_unique<Animation>();
 	this->_anim->Set("UIBoard");
 
@@ -47,11 +50,6 @@ void JudgeResultLabel::Draw()
 	for (auto itr = this->_resultText.begin(); itr != this->_resultText.end(); itr++) {
 		(*itr).second->DrawFormatFont(GetJudgeResultCnt((*itr).first));
 	}
-}
-
-Rect JudgeResultLabel::GetUIBoardRect()
-{
-	return this->_drawRect;
 }
 
 

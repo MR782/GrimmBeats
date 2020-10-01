@@ -157,6 +157,7 @@
     <ClCompile Include="BPMLabel.cpp" />
     <ClCompile Include="ClearGauge.cpp" />
     <ClCompile Include="ClearGaugeFream.cpp" />
+    <ClCompile Include="ComboLabel.cpp" />
     <ClCompile Include="ComposerLabel.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePlayButton.cpp" />
@@ -180,6 +181,8 @@
     <ClCompile Include="MusicListItemButton.cpp" />
     <ClCompile Include="MusicNameLabel.cpp" />
     <ClCompile Include="MusicPlayerButton.cpp" />
+    <ClCompile Include="MusicPlayerCursol.cpp" />
+    <ClCompile Include="MusicPlayerScene.cpp" />
     <ClCompile Include="MusicSelectCursor.cpp" />
     <ClCompile Include="MusicSelectScene.cpp" />
     <ClCompile Include="Necessary.cpp" />
@@ -207,6 +210,7 @@
     <ClInclude Include="BPMLabel.h" />
     <ClInclude Include="ClearGauge.h" />
     <ClInclude Include="ClearGaugeFream.h" />
+    <ClInclude Include="ComboLabel.h" />
     <ClInclude Include="ComposerLabel.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePlayButton.h" />
@@ -229,6 +233,8 @@
     <ClInclude Include="MusicListItemButton.h" />
     <ClInclude Include="MusicNameLabel.h" />
     <ClInclude Include="MusicPlayerButton.h" />
+    <ClInclude Include="MusicPlayerCursol.h" />
+    <ClInclude Include="MusicPlayerScene.h" />
     <ClInclude Include="MusicSelectCursor.h" />
     <ClInclude Include="MusicSelectScene.h" />
     <ClInclude Include="Necessary.h" />

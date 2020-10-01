@@ -4,14 +4,11 @@
 #include"ScreenFunction.h"
 #include"SceneManager.h"
 #include"KeyBoard.h"
-#include"MemoryFunc.h"
 #include"Audio.h"
 #include"./dxlib/DxLib.h"
 
 TitleScene::TitleScene()
 {
-	this->_titleGuide = nullptr;
-	this->_titleLogo = nullptr;
 }
 
 void TitleScene::Initialize()
@@ -29,16 +26,11 @@ void TitleScene::Initialize()
 	this->_movie = std::make_unique<Movie>();
 	this->_movie->Set("Leaf");
 	this->graph_Xsize = ScreenData::width;//背景画像の大きさをセット
-#pragma endregion
+	#pragma endregion
 
-	#pragma region オブジェクトの初期化
-	//ガイドレベルの初期化
-	this->_titleGuide = new TitleGuide();
-	this->_titleLogo = new TitleLogo();
-	MemoryFunction::CheckMem(this->_titleLogo);
-	MemoryFunction::CheckMem(this->_titleGuide);
-	this->_titleGuide->Initialize();
-	this->_titleLogo->Initialize();
+	#pragma region オブジェクトの生成
+	sceneManager->AddActor(new TitleGuide());
+	sceneManager->AddActor(new TitleLogo());
 	#pragma endregion
 
 	//初期値セット
@@ -53,11 +45,8 @@ void TitleScene::Finalize()
 	Audio::DeleteSoundDataScope("title");
 	this->_movie->Delete();
 	this->_movie.reset();
-	this->_titleGuide->Finalize();
-	this->_titleLogo->Finalize();
 
-	delete this->_titleLogo;
-	delete this->_titleGuide;
+	sceneManager->KillActorALL();
 }
 
 void TitleScene::Update()
@@ -72,8 +61,4 @@ void TitleScene::Draw()
 	this->DrawBG();
 	//映像描画
 	this->_movie->Draw();
-
-	//オブジェクト描画
-	this->_titleLogo->Draw();
-	this->_titleGuide->Draw();
 }

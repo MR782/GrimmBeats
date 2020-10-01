@@ -3,7 +3,11 @@
 #include"BasicUI.h"
 #include"KeyBoard.h"
 #include"GameScene.h"
+#include"SceneManager.h"
 #include"./dxlib/DxLib.h"
+
+std::map<LaneName, Rect> Lane::_lane;
+std::map<LaneName, int> Lane::_keycode;
 
 Lane::~Lane()
 {
@@ -11,6 +15,7 @@ Lane::~Lane()
 
 void Lane::Initialize()
 {
+	this->name = "Lane";
 	const int laneXsize = (ScreenData::width / 14);
 	const int spaceLaneXsize = laneXsize * 2;
 	#pragma region レーンごとの矩形を用意
@@ -54,17 +59,18 @@ void Lane::Draw()
 	}
 }
 
-Rect Lane::GetRect(LaneName lane)
+Rect Lane::GetLaneRect(LaneName lane)
 {
-	for (auto itr = this->_lane.begin(); itr != this->_lane.end(); itr++) {
-		if ((*itr).first == lane) return (*this->_lane.find(LaneName((*itr).first))).second;
+
+	for (auto itr = _lane.begin(); itr != _lane.end(); itr++) {
+		if ((*itr).first == lane) return _lane.find(LaneName((*itr).first))->second;
 	}
 	throw("指定された矩形が見つかりませんでした(Lane::GetRect())");
 }
 
 int Lane::GetKeyCode(LaneName lane)
 {
-	return this->_keycode[lane];
+	return _keycode[lane];
 }
 
 bool Lane::IsPressed(LaneName lane)
@@ -74,9 +80,10 @@ bool Lane::IsPressed(LaneName lane)
 
 void Lane::DrawWhiteLane(LaneName lane)
 {
+	Vector2 pos = sceneManager->FindActor("JudgeLine")->GetPosition();
 	if (IsPressed(lane)) {
 		DrawBox(this->_lane[lane].x, this->_lane[lane].y + ScreenData::height / 6,
-			this->_lane[lane].x + this->_lane[lane].w, this->_lane[lane].y + (int)Object::judgeLine->GetPosition().y,
+			this->_lane[lane].x + this->_lane[lane].w, this->_lane[lane].y + (int)pos.y,
 			SetColor(Color::Gray), TRUE);
 	}
 }

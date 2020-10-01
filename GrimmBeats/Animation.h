@@ -18,6 +18,7 @@ public:
 	void DrawAnime(Point);
 	void DrawAnime(Vector2);
 	void ExtendAnimeDraw(Rect);
+	void ExtendRectDraw(Rect);//4点を指定して描画
 	void BlinkDraw(int period, int a_percent,Vector2);
 	void BlinkExtendDraw(int period, int a_percent, Rect drawrect);
 	void Set(std::string);

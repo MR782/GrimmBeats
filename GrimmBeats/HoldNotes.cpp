@@ -1,7 +1,23 @@
 #include "HoldNotes.h"
 #include"KeyBoard.h"
 #include"GameScene.h"
+#include"SceneManager.h"
 #include"./dxlib/DxLib.h"
+
+void HoldNotes::Move()
+{
+	Vector2 linePos = sceneManager->FindActor("JudgeLine")->GetPosition();
+	//始点と終点で描画を管理するためStartとEnd両方移動させる
+	float startPosY = linePos.y + ((this->_perfectTiming - Counter::_gameCnt)
+		* -(linePos.y) * (0.001f * (float)Necessary::speed));
+
+	this->_drawRect.y = (int)startPosY;
+
+	float endPosY = linePos.y + ((this->_holdTime - Counter::_gameCnt)
+		* -(linePos.y) * (0.001f * (float)Necessary::speed));
+
+	this->_drawRect.h = (int)endPosY;
+}
 
 HoldNotes::HoldNotes()
 {
@@ -13,38 +29,52 @@ HoldNotes::HoldNotes()
 
 JudgeResult HoldNotes::Judge()
 {
-	const int judgetime = 7;
-	//先頭タップ判定----------------------------------------------------
-	if (this->_state == HoldState::Non) {
-		JudgeResult result;
-		//通り過ぎた時の判定(Miss)
-		if (this->_perfectTiming - Counter::_gameCnt <= -judgetime) { 
-			this->_state = HoldState::Hold;
-			return JudgeResult::Miss;
-		}
-		if (KeyBoard::KeyDown(Object::lane->GetKeyCode(this->_lane))) {
-			//まだ判定ラインに到達していなくて、判定時間の範囲に入っていないなら
-			if (this->_perfectTiming - Counter::_gameCnt > judgetime) return JudgeResult::Non;
-			//判定範囲に入っているなら
-			else if (this->_perfectTiming - Counter::_gameCnt > judgetime) result = JudgeResult::Miss;//X秒以上すぎていたらMiss
-			else if (this->_perfectTiming - Counter::_gameCnt > judgetime - 3) result = JudgeResult::Good;//上記以内でX秒以上すぎていたらGood
-			else if (this->_perfectTiming - Counter::_gameCnt > judgetime - 5) result = JudgeResult::Great;//上記以内でX秒以上すぎていたらGreat
-			else result = JudgeResult::Perfect;//どれにも当てはまらないならPerfect
-			this->_state = HoldState::Hold;
-			return result;
+	if (this->_holdTime <= Counter::_gameCnt) {
+		this->_judgeFinish = true;
+	}
+	int keycode = Lane::GetKeyCode(this->_lane);
+	if (KeyBoard::KeyPress(keycode)) {
+		//終点の時間には到達しておらず,
+		//先頭のタイミングを過ぎているなら
+		if (this->_perfectTiming <= Counter::_gameCnt
+			&&
+			this->_holdTime >= Counter::_gameCnt) {
+			this->_holdCnt++;
+			if (this->_holdCnt % 5 == 0) return JudgeResult::Perfect;
+			else JudgeResult::HoldNow;
 		}
 	}
-	//ホールド判定------------------------------------------------------
 	else {
-		if (KeyBoard::KeyPress(Object::lane->GetKeyCode(this->_lane))) {
+		if (this->_perfectTiming <= Counter::_gameCnt
+			&&
+			this->_holdTime >= Counter::_gameCnt) {
 			this->_holdCnt++;
-			JudgeResult result;
-
-			if (this->_perfectTiming + this->_holdTime < Counter::_gameCnt) this->_judgeFinish = true;
-			if (this->_holdCnt % 2 == 0) result = JudgeResult::Perfect;
-			else result = JudgeResult::HoldNow;
-			return result;
+			if (this->_holdCnt % 5 == 0) return JudgeResult::Miss;
+			else JudgeResult::HoldNow;
 		}
 	}
 	return JudgeResult::Non;
+}
+
+void HoldNotes::SetInfo(float p_timing, LaneName lane, float endtime)
+{
+	float notesHeight = 16;
+	this->_perfectTiming = p_timing;
+	this->_lane = lane;
+	this->_holdTime = endtime;
+	this->_judgeFinish = false;
+	//終点と始点で矩形を作る
+	Rect laneRect = Lane::GetLaneRect(lane);
+	Vector2 judgeLinePos = sceneManager->FindActor("JudgeLine")->GetPosition();
+
+	Rect draw = Rect(laneRect.x + 1,//X
+		(int)(judgeLinePos.y + ((this->_perfectTiming - Counter::_gameCnt) * -(judgeLinePos.y) * (0.001f * (float)Necessary::speed))),//Y
+		laneRect.x + laneRect.w,
+		(int)(judgeLinePos.y + ((this->_holdTime - Counter::_gameCnt) * -(judgeLinePos.y) * (0.001f * (float)Necessary::speed))));//W,H
+	this->_drawRect = draw;
+}
+
+void HoldNotes::Draw()
+{
+	this->_anim->ExtendRectDraw(this->_drawRect);
 }

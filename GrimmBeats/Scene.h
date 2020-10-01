@@ -1,6 +1,7 @@
 #pragma once
 #include"Purpose.h"
 #include"Necessary.h"
+#include"GameObject.h"
 #include <map>
 #include <string>
 
@@ -20,7 +21,6 @@ protected:
 	bool _move_background;//”wŒi‚ğ“®‚©‚·‚©
 	int _background_graph;//”wŒi‰æ‘œ
 	std::string decisionSEName;//ƒV[ƒ“‚²‚Æ‚ÌŒˆ’è‰¹
-
 	SceneKind nextScene;
 	//”wŒi•`‰æ
 	void DrawBG();

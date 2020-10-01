@@ -93,6 +93,11 @@ int WINAPI WinMain(
 	}
 	#pragma region エラー時の処理
 	catch (const char* msg) {
+		KeyBoard::Finalize();
+		Audio::Finalize();
+		GraphicResource::Finalize();
+		MovieResource::Finalize();
+		MusicDataManager::Finalize();
 		//なぜ例外が投げられたか知らせる
 		MessageBox(NULL, msg, "ERROR", MB_OK);//WindowsAPI機能
 	}

@@ -1,10 +1,12 @@
 #include "NotesController.h"
 #include"NotesCreater.h"
 #include"TapNotes.h"
+#include"ClearGauge.h"
 #include"GameScene.h"
 
 void NotesController::Initialize()
 {
+	this->name = "NotesController";
 	this->Allocation();
 }
 
@@ -66,16 +68,14 @@ void NotesController::LaneNotesUpdate(LaneName lane)
 		(*itr)->Update();
 	}
 	if (this->_laneNotesList[lane].empty()) return;
-	
+
 	auto item = std::move(this->_laneNotesList[lane].begin());
 	//æ“ªƒm[ƒc‚Ì‚Ý”»’è
 	JudgeResult jr = (*item)->Judge();
-	if ((*item)->GetJudgeFinish() && jr != JudgeResult::Non){
-		ResultUpdate(jr);
+	ResultUpdate(jr);
+	if ((*item)->GetJudgeFinish() && jr != JudgeResult::Non) {
 		this->_laneNotesList[lane].erase(item);
-		
 	}
-	
 }
 
 void NotesController::LaneNotesDraw(LaneName lane)
@@ -92,15 +92,23 @@ void NotesController::ResultUpdate(JudgeResult jr)
 	{
 	case JudgeResult::Perfect:
 		Counter::_perfectCnt++;
+		Counter::_comboCnt++;
+		ClearGauge::IncreaseGaugeCnt(3);
 		break;
 	case JudgeResult::Great:
 		Counter::_greatCnt++;
+		Counter::_comboCnt++;
+		ClearGauge::IncreaseGaugeCnt(2);
 		break;
 	case JudgeResult::Good:
 		Counter::_goodCnt++;
+		Counter::_comboCnt++;
+		ClearGauge::IncreaseGaugeCnt(1);
 		break;
 	case JudgeResult::Miss:
 		Counter::_missCnt++;
+		Counter::_comboCnt = 0;
+		ClearGauge::DecreaseGaugeCnt(10);
 		break;
 	}
 }

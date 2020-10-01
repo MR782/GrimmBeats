@@ -9,14 +9,14 @@ class MusicListItemButton : public GameObject {
 		std::string _graphName;
 		Rect _rect;
 	};
-	std::vector<MusicListItem> _items;
+	static std::vector<MusicListItem> _items;
 
-	void AddItem(std::string name, std::string graphname, Rect rect);
+	static void AddItem(std::string name, std::string graphname, Rect rect);
 public:
 	void Initialize()override;
 	void Finalize()override;
 	void Update()override;
 	void Draw()override;
 
-	Rect GetRect(std::string);
+	static Rect GetRect(std::string);
 };

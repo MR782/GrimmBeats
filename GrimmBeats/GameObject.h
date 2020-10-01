@@ -4,8 +4,10 @@
 
 class GameObject {
 protected:
+	std::string name;
 	std::unique_ptr<Animation> _anim;
 	Vector2 _position;
+	Rect _drawRect;
 public:
     virtual ~GameObject();
 	virtual void Initialize() = 0;
@@ -14,4 +16,6 @@ public:
 	virtual void Draw();
 
 	Vector2 GetPosition();
+	Rect GetDrawRect();
+	std::string GetName();
 };
