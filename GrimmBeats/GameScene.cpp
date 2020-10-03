@@ -36,7 +36,6 @@ GameScene::GameScene()
 void GameScene::Initialize()
 {
 	GraphicResource::Load("game");
-	GraphicResource::Load("uiboard");
 	Audio::Load("game");
 
 	#pragma region ílÇÃèâä˙âª
@@ -85,7 +84,6 @@ void GameScene::Finalize()
 	Time::DeleteTimer("StartGame");
 	Audio::DeleteSoundDataScope("game");
 	GraphicResource::DeleteGraphScope("game");
-	GraphicResource::DeleteGraphScope("uiboard");
 }
 
 void GameScene::Update()

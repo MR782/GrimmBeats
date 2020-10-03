@@ -100,6 +100,10 @@ void MusicDataManager::Initialize()
 
 void MusicDataManager::Finalize()
 {
+	for (auto itr = musicinfoList.begin(); itr != musicinfoList.end(); itr++) {
+		(*itr).txtFile.clear();
+		(*itr).level.clear();
+	}
 	musicinfoList.clear();
 }
 

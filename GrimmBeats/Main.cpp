@@ -1,7 +1,4 @@
-//ƒƒ‚ƒŠƒŠ[ƒN‚ğ’²‚×‚é
-#define _CRTDBG_MAP_ALLOC
 #include<stdlib.h>
-#include<crtdbg.h>
 #include<Windows.h>
 #include"SceneManager.h"
 #include"KeyBoard.h"
@@ -12,6 +9,8 @@
 #include"Time.h"
 #include"ScreenSystem.h"
 #include"ScreenFunction.h"
+#include <crtdbg.h>
+#include <cstdlib>
 #include"./dxlib/DxLib.h"
 
 SceneManager* sceneManager;

@@ -236,6 +236,7 @@
       "sheets": 1,
       "scope": [
         "musicselect",
+        "game",
         "uiboard",
         "ui",
         "all"
